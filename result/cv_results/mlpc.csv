@@ -1,0 +1,2 @@
+rank_test_score,mean_test_score,std_test_score,mean_train_score,std_train_score,mean_fit_time,std_fit_time,mean_score_time,std_score_time,param_model__alpha,param_model__hidden_layer_sizes,param_model__learning_rate_init,params,split0_test_score,split0_train_score
+1,0.44845314947910003,0.0,0.6763181091965405,0.0,0.46286869049072266,0.0,0.0033152103424072266,0.0,0.0001,4,0.015625,"{'model__alpha': 0.0001, 'model__hidden_layer_sizes': 4, 'model__learning_rate_init': 0.015625}",0.44845314947910003,0.6763181091965405
