@@ -38,6 +38,14 @@ from PIL import Image
 engine_csv = r'https://raw.githubusercontent.com/nehat312/prop-swap/main/data/engine.csv'
 all_investor_idx = pd.read_csv(engine_csv) #, header=0, index_col=0 #, encoding='utf-8'
 
+abspath_curr = ''
+
+planetary_systems = abspath_curr + '/data/NASA_Planetary_Systems-4-24-22'
+exoplanets = abspath_curr + '/data/NASA_Exoplanets-4-22-22'
+
+#planetary_systems = pd.read_csv(planetary_systems + '.csv', index_col='pl_name')
+#exoplanets = pd.read_csv(exoplanets + '.csv', index_col='pl_name')
+
 ## VARIABLE ASSIGNMENT
 
 all_investor_idx = all_investor_idx.sort_values(by='TTL_VOL_RANK')
