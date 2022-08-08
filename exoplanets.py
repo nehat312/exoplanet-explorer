@@ -273,15 +273,18 @@ github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explore
 nasa_caltech_link = '[NASA ARCHIVES](https://exoplanetarchive.ipac.caltech.edu/)'
 
 left_column, right_column = st.columns(2)
-left_button = left_column.button('GITHUB REPOSITORY')
-right_button = right_column.button('NASA ARCHIVES')
-if left_button:
-    # left_column.write('https://github.com/nehat312/exoplanet-explorer')
-    st.markdown(github_link, unsafe_allow_html=True)
-if right_button:
-    # right_column.write('https://exoplanetarchive.ipac.caltech.edu/')
-    st.markdown(nasa_caltech_link, unsafe_allow_html=True)
+left_button = left_column.button(github_link, unsafe_allow_html=True)
+right_button = right_column.button(nasa_caltech_link)
 
+# left_button = left_column.button('GITHUB REPOSITORY')
+# right_button = right_column.button('NASA ARCHIVES')
+# if left_button:
+#     # left_column.write('https://github.com/nehat312/exoplanet-explorer')
+# if right_button:
+    # right_column.write('https://exoplanetarchive.ipac.caltech.edu/')
+
+    st.markdown(github_link, unsafe_allow_html=True)
+    st.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
 # st.success('')
 # st.warning('')
