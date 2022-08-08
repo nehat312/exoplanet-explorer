@@ -273,7 +273,7 @@ github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explore
 nasa_caltech_link = '[NASA ARCHIVES](https://exoplanetarchive.ipac.caltech.edu/)'
 
 left_column, right_column = st.columns(2)
-left_button = left_column.button(github_link)
+left_button = left_column.button.markdown(github_link, unsafe_allow_html=True)
 right_button = right_column.button(nasa_caltech_link)
 
 # left_button = left_column.button('GITHUB REPOSITORY')
