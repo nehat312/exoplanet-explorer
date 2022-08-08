@@ -145,7 +145,35 @@ exoplanet_list_prompt = st.subheader('SELECT EXOPLANET:')
 exoplanet_list = st.selectbox('EXOPLANETS:', (exoplanet_names))
 
 
-exo_chart_1 = px.scatter(exoplanets,
+
+
+exo_matrix_1 = px.scatter_matrix(exoplanets,
+                                     dimensions=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #'st_radius', 'st_mass',
+                                     color=exoplanets['st_temp_eff_k'],
+                                     color_continuous_scale=Temps,
+                                     color_discrete_sequence=Temps,
+                                     hover_name=exoplanets['pl_name'],
+                                     hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
+                                     title='EXOPLANET ATTRIBUTES',
+                                     labels=chart_labels,
+                                     height=700,
+                                     width=800,
+                                     )
+
+star_matrix_1 = px.scatter_matrix(exoplanets,
+                                     dimensions=['st_radius', 'st_mass', 'st_metallicity', 'st_surf_gravity'],
+                                     color=exoplanets['st_temp_eff_k'],
+                                     color_continuous_scale=Temps,
+                                     color_discrete_sequence=Temps,
+                                     hover_name=exoplanets['pl_name'],
+                                     hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
+                                     title='STAR ATTRIBUTES',
+                                     labels=chart_labels,
+                                     height=700,
+                                     width=800,
+                                     )
+
+exo_scatter_1 = px.scatter(exoplanets,
                          x=exoplanets['pl_rade'],
                          y=exoplanets['pl_bmasse'],
                          color=exoplanets['st_temp_eff_k'],
@@ -157,7 +185,7 @@ exo_chart_1 = px.scatter(exoplanets,
                          labels=chart_labels,
                          )
 
-star_chart_1 = px.scatter(exoplanets,
+star_scatter_1 = px.scatter(exoplanets,
                          x=exoplanets['st_radius'],
                          y=exoplanets['st_mass'],
                          color=exoplanets['st_temp_eff_k'],
@@ -169,22 +197,13 @@ star_chart_1 = px.scatter(exoplanets,
                          labels=chart_labels,
                          )
 
-scatter_matrix_1 = px.scatter_matrix(exoplanets,
-                                     dimensions=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #'st_radius', 'st_mass',
-                                     color=exoplanets['st_temp_eff_k'],
-                                     color_continuous_scale=Temps,
-                                     color_discrete_sequence=Temps,
-                                     hover_name=exoplanets['pl_name'],
-                                     hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
-                                     # title='DISCOVERY METHOD',
-                                     labels=chart_labels,
-                                     height=700,
-                                     width=800,
-                                     )
 
-st.plotly_chart(exo_chart_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(star_chart_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(scatter_matrix_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
+
+st.plotly_chart(exo_scatter_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(star_scatter_1, use_container_width=False, sharing="streamlit")
+
 
 
 
