@@ -197,6 +197,7 @@ star_scatter_1 = px.scatter(exoplanets,
                          labels=chart_labels,
                          )
 
+## DISCOVERIES OVER TIME ##
 
 st.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
