@@ -76,7 +76,7 @@ loc_rowid,pl_name,host_name,sy_star_count,sy_planet_count,disc_method,disc_year,
 76,CFHTWIR-Oph 98 b,CFHTWIR-Oph 98 A,1,1,Imaging,2021,Hubble Space Telescope,2.4 m Hubble Space Telescope,WFC3 Camera,0,,200,20.849,1.86,2479.06157,7.8,Mass,,0,2320,40,-40,0.24,0.01,,3.85,16h27m44.23s,246.934277,-23d58m52.14s,-23.98115,,,14.593,
 77,CHXR 73 b,CHXR 73,1,1,Imaging,2006,Hubble Space Telescope,2.4 m Hubble Space Telescope,ACS Camera,0,,210,12.3,1.1,3994.486,12.569,Mass,,0,3099,128,-128,,0.35,,,11h06m28.66s,166.6193985,-77d37m33.14s,-77.6258725,190.374,,10.703,17.2934
 78,CI Tau b,CI Tau,1,1,Radial Velocity,2019,Multiple Observatories,Multiple Telescopes,IGRINS Spectrometer,0,8.9891,,12.4,1.11,3686.828,11.6,Mass,0.25,0,3807,131,-131,1.88,0.9,,,04h33m52.02s,68.4667685,+22d50m29.83s,22.8416192,157.998,13.642,7.793,12.1454
-79,COCONUTS-2 b,COCONUTS-2 A,1,1,Imaging,2021,NASA Infrared Telescope Facility (IRTF),3.2 m telescope,SpeX,0,,7506,12.442,1.11,2002.31896,6.3,Mass,,0,3406,69,-69,0.39,0.37,0,4.83,07h49m12.22s,117.300914,-76d42m09.71s,-76.702696,10.8864,11.298,6.579,10.146
+79,COCONUTS-2 b,COCONUTS-2 A,1,1,Imaging,2021,NASA Infrared Telescope Facility (IRTF),3.2 m telescope,SpeX,0,,,12.442,1.11,2002.31896,6.3,Mass,,0,3406,69,-69,0.39,0.37,0,4.83,07h49m12.22s,117.300914,-76d42m09.71s,-76.702696,10.8864,11.298,6.579,10.146
 80,CT Cha b,CT Cha,1,1,Imaging,2007,Paranal Observatory,8.2 m ESO VLT UT4 Yepun Telescope,NACO Camera,0,,440,24.66,2.2,5403,17,Mass,,0,4403,6,-10,1.68,,-0.56,3.66,11h04m09.00s,166.0375038,-76d27m19.33s,-76.4553693,190.72,12.335,8.661,11.7733
 81,CoRoT-1 b,CoRoT-1,1,1,Transit,2008,CoRoT,0.27 m CoRoT Telescope,CoRoT CCD Array,0,1.5089557,0.02752,16.7,1.49,327.35,1.03,Mass,0,0,5950,150,-150,1.11,0.95,-0.3,4.25,06h48m19.17s,102.0798591,-03d06m07.70s,-3.1021394,787.909,13.623,12.149,13.457
 82,CoRoT-10 b,CoRoT-10,1,1,Transit,2010,CoRoT,0.27 m CoRoT Telescope,CoRoT CCD Array,0,13.2406,0.1055,10.87,0.97,874,2.75,Mass,0.53,0,5075,75,-75,0.79,0.89,0.26,4.65,19h24m15.28s,291.0636813,+00d44m45.65s,0.7460143,338.386,15.293,11.782,14.6645
@@ -5011,4 +5011,4 @@ loc_rowid,pl_name,host_name,sy_star_count,sy_planet_count,disc_method,disc_year,
 5013,ups Leo b,ups Leo,1,1,Radial Velocity,2021,Okayama Astrophysical Observatory,1.88 m Telescope,HIDES Echelle Spectrograph,0,385.2,1.18,14.2,1.27,162.09249,0.51,Msini,0.32,0,4836,,,11.22,1.48,-0.2,2.46,11h36m56.93s,174.2372188,-00d49m24.83s,-0.8235643,52.5973,4.3049,2.184,4.0304
 5014,xi Aql b,xi Aql,1,1,Radial Velocity,2007,Okayama Astrophysical Observatory,1.88 m Telescope,HIDES Echelle Spectrograph,0,136.75,0.68,13.2,1.18,890,2.8,Msini,0,0,4780,30,-30,12,2.2,-0.205,2.66,19h54m14.99s,298.5624491,+08d27m39.98s,8.4611051,56.1858,4.70964,2.171,4.42501
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,14002,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,14002,3500,,,,,,,,,,,,,,,,,,,,,,
