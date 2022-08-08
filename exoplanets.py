@@ -283,8 +283,8 @@ right_button = right_column.button(nasa_caltech_link)
 # if right_button:
     # right_column.write('https://exoplanetarchive.ipac.caltech.edu/')
 
-    st.markdown(github_link, unsafe_allow_html=True)
-    st.markdown(nasa_caltech_link, unsafe_allow_html=True)
+    # st.markdown(github_link, unsafe_allow_html=True)
+    # st.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
 # st.success('')
 # st.warning('')
