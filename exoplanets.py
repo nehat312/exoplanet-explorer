@@ -44,31 +44,31 @@ exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, hea
 # print(exoplanets.info())
 # exoplanets.dropna(inplace=True)
 
-print(exoplanets.info())
-print(exoplanets.columns)
+# print(exoplanets.info())
+# print(exoplanets.columns)
 # print(exoplanets.head())
 
 ## VARIABLE ASSIGNMENT ##
-## USED FOR MODELING
-exoplanet_num_cols = exoplanets[['sy_star_count', 'sy_planet_count',
-                                  'pl_orbper', 'pl_orbsmax', 'pl_rade', 'pl_radj',
-                                 'pl_bmasse', 'pl_bmassj', 'pl_bmassprov', 'pl_orbeccen',
-                                 'ttv_flag', 'st_temp_eff_k', 'st_temp_eff_k1', 'st_temp_eff_k2', 'st_radius', 'st_mass',
-                                  'st_metallicity', 'st_surf_gravity', 'rastr', 'ra', 'decstr', 'dec',
-                                  'sy_distance_pc', 'sy_vmag', 'sy_kmag', 'sy_gaiamag'
-                                 ]]
-
-## USED FOR VISUALIZATION
-exoplanets_all_cols = exoplanets[['loc_rowid',
-                                  'host_name', 'sy_star_count', 'sy_planet_count',
-                                  'disc_method', 'disc_year', 'disc_facility',
-                                  'disc_telescope', 'disc_instrument', 'pl_controv_flag', 'pl_orbper',
-                                  'pl_orbsmax', 'pl_rade', 'pl_radj', 'pl_bmasse', 'pl_bmassj',
-                                  'pl_bmassprov', 'pl_orbeccen', 'ttv_flag', 'st_temp_eff_k',
-                                  'st_temp_eff_k1', 'st_temp_eff_k2', 'st_radius', 'st_mass',
-                                  'st_metallicity', 'st_surf_gravity', 'rastr', 'ra', 'decstr', 'dec',
-                                  'sy_distance_pc', 'sy_vmag', 'sy_kmag', 'sy_gaiamag'
-                                  ]]
+# ## USED FOR MODELING
+# exoplanet_num_cols = exoplanets[['sy_star_count', 'sy_planet_count',
+#                                   'pl_orbper', 'pl_orbsmax', 'pl_rade', 'pl_radj',
+#                                  'pl_bmasse', 'pl_bmassj', 'pl_bmassprov', 'pl_orbeccen',
+#                                  'ttv_flag', 'st_temp_eff_k', 'st_temp_eff_k1', 'st_temp_eff_k2', 'st_radius', 'st_mass',
+#                                   'st_metallicity', 'st_surf_gravity', 'rastr', 'ra', 'decstr', 'dec',
+#                                   'sy_distance_pc', 'sy_vmag', 'sy_kmag', 'sy_gaiamag'
+#                                  ]]
+#
+# ## USED FOR VISUALIZATION
+# exoplanets_all_cols = exoplanets[['loc_rowid',
+#                                   'host_name', 'sy_star_count', 'sy_planet_count',
+#                                   'disc_method', 'disc_year', 'disc_facility',
+#                                   'disc_telescope', 'disc_instrument', 'pl_controv_flag', 'pl_orbper',
+#                                   'pl_orbsmax', 'pl_rade', 'pl_radj', 'pl_bmasse', 'pl_bmassj',
+#                                   'pl_bmassprov', 'pl_orbeccen', 'ttv_flag', 'st_temp_eff_k',
+#                                   'st_temp_eff_k1', 'st_temp_eff_k2', 'st_radius', 'st_mass',
+#                                   'st_metallicity', 'st_surf_gravity', 'rastr', 'ra', 'decstr', 'dec',
+#                                   'sy_distance_pc', 'sy_vmag', 'sy_kmag', 'sy_gaiamag'
+#                                   ]]
 
 ## STYLE DICTIONARY ##
 YlOrRd = px.colors.sequential.YlOrRd
@@ -131,17 +131,17 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Data sourced from NASA-CalTECH mission archives*')
 
-exo_chart_1 = px.scatter(exoplanets, #all_investor_idx
-                                    x=exoplanets['st_rad'],
-                                    y=exoplanets['st_mass'],
-                                    color=exoplanets['st_temp_eff_k'],
-                                    color_continuous_scale=Sunsetdark, #'YlOrRd', #'Tropic',
-                                    color_discrete_sequence=Sunsetdark,
-                                    hover_name=exoplanets['host_name'],
-                                    # hover_data=exoplanets[['sy_star_count', 'sy_planet_count']],
-                                    title='HOST STAR ATTRIBUTES',
-                                    labels=chart_labels,
-                                    )
+exo_chart_1 = px.scatter(exoplanets,
+                         x=exoplanets['st_rad'],
+                         y=exoplanets['st_mass'],
+                         color=exoplanets['st_temp_eff_k'],
+                         color_continuous_scale=Sunsetdark, #'YlOrRd', #'Tropic',
+                         color_discrete_sequence=Sunsetdark,
+                         hover_name=exoplanets['host_name'],
+                         # hover_data=exoplanets[['sy_star_count', 'sy_planet_count']],
+                         title='HOST STAR ATTRIBUTES',
+                         labels=chart_labels,
+                         )
 
 st.plotly_chart(exo_chart_1, use_container_width=False, sharing="streamlit")
 
