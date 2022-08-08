@@ -112,6 +112,9 @@ chart_labels = {'pl_name':'PLANET NAME',
 exoplanet_names = list(exoplanets['pl_name'])
 star_names = list(exoplanets['host_name'])
 
+# print(exoplanets.disc_method.unique())
+
+
 
 # #%%
 
@@ -173,20 +176,23 @@ star_chart_1 = px.scatter(exoplanets,
                          labels=chart_labels,
                          )
 
-# disc_chart_1 = px.bar(exoplanets,
-#                          x=exoplanets['disc_facility'],
-#                          y=exoplanets['st_mass'],
-#                          color=exoplanets['st_temp_eff_k'],
-#                          color_continuous_scale=Sunsetdark, #'YlOrRd', #'Tropic',
-#                          color_discrete_sequence=Sunsetdark,
-#                          hover_name=exoplanets['host_name'],
-#                          hover_data=exoplanets[['sy_star_count', 'sy_planet_count']],
-#                          title='HOST STAR ATTRIBUTES',
-#                          labels=chart_labels,
-#                          )
+scatter_matrix_1 = px.scatter_matrix(exoplanets,
+                                 dimensions=['st_radius', 'st_mass', 'st_temp_eff_k', 'pl_rade', 'pl_bmasse', 'pl_orbper'],
+                                 color=exoplanets['st_temp_eff_k'],
+                                 color_continuous_scale=Temps,
+                                 color_discrete_sequence=Temps,
+                                 hover_name=exoplanets['pl_name'],
+                                 hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
+                                 # title='DISCOVERY METHOD',
+                                 labels=chart_labels,
+                                 )
 
 st.plotly_chart(exo_chart_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(star_chart_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(scatter_matrix_1, use_container_width=False, sharing="streamlit")
+
+
+st.plotly_chart([exo_chart_1, star_chart_1], use_container_width=False, sharing="streamlit")
 
 
 
