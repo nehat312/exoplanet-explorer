@@ -182,10 +182,7 @@ scatter_matrix_1 = px.scatter_matrix(exoplanets,
 
 st.plotly_chart(exo_chart_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(star_chart_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(scatter_matrix_1, use_container_width=False, sharing="streamlit")
-
-
-st.plotly_chart((exo_chart_1, star_chart_1), use_container_width=False, sharing="streamlit")
+st.plotly_chart(scatter_matrix_1, use_container_width=True, sharing="streamlit")
 
 
 
