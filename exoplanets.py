@@ -40,14 +40,14 @@ exoplanet_path = abs_path + '/data/NASA_Exoplanets-8-7-22.csv'
 ## DATA IMPORT ##
 exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, header=0, index_col='pl_name'#,
 
-# print(exoplanets.info())
 
-exoplanets.dropna(inplace=True)
+# exoplanets.dropna(inplace=True)
 
 # print(exoplanets.info())
-# print(exoplanets.columns)
+print(exoplanets.columns)
 # print(exoplanets.head())
 
+#%%
 ## VARIABLE ASSIGNMENT ##
 # ## USED FOR MODELING
 # exoplanet_num_cols = exoplanets[['sy_star_count', 'sy_planet_count',
@@ -77,23 +77,26 @@ Electric = px.colors.sequential.Electric
 Sunsetdark = px.colors.sequential.Sunsetdark
 Sunset = px.colors.sequential.Sunset
 Tropic = px.colors.diverging.Tropic
+Temps = px.colors.diverging.Temps
+Tealrose = px.colors.diverging.Tealrose
+
 
 chart_labels = {'pl_name':'PLANET NAME',
-                'host_name':'HOST NAME',
-                'sy_star_count':'SYSTEM STARS',
-                'sy_planet_count':'SYSTEM PLANETS',
+                'host_name':'STAR NAME',
+                'sy_star_count':'SYSTEM STARS (#)',
+                'sy_planet_count':'SYSTEM PLANETS (#)',
                 'disc_method':'DISCOVERY METHOD',
                 'disc_year':'DISCOVERY YEAR',
                 'disc_facility':'DISCOVERY FACILITY',
                 'disc_telescope':'DISCOVERY TELESCOPE',
                 'disc_instrument':'DISCOVERY INSTRUMENT',
                 'pl_orbper':'PLANET ORBITAL PERIOD',
-                # 'pl_orbsmax':'PLANET ORBITAL',
+                # 'pl_orbsmax':'PLANET MAX ORBITAL',
+                'pl_orbeccen':'PLANET ORBITAL ECCENTRICITY',
                 'pl_rade':'PLANET RAD (E)',
                 'pl_radj':'PLANET RAD (J)',
                 'pl_bmasse':'PLANET MASS (E)',
                 'pl_bmassj':'PLANET MASS (J)',
-                'pl_orbeccen':'PLANET ORBITAL ECCENTRICITY',
                 'st_temp_eff_k':'STAR TEMPERATURE (K)',
                 'st_radius':'STAR RADIUS',
                 'st_mass':'STAR MASS',
@@ -105,6 +108,10 @@ chart_labels = {'pl_name':'PLANET NAME',
                 'glon':'GALACTIC LONGITUDE',
                 'glat':'GALACTIC LATITUDE'
                 }
+
+exoplanet_names = list(exoplanets['pl_name'])
+star_names = list(exoplanets['host_name'])
+
 
 # #%%
 
@@ -129,31 +136,59 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 st.container()
 
 st.title('EXOPLANET EXPLORER')
-st.subheader('*Data sourced from NASA-CalTECH mission archives*')
+st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-exo_chart_1 = px.scatter(exoplanets,
-                         x=exoplanets['st_radius'],
-                         y=exoplanets['st_mass'],
-                         color=exoplanets['st_temp_eff_k'],
-                         color_continuous_scale=Sunsetdark, #'YlOrRd', #'Tropic',
-                         color_discrete_sequence=Sunsetdark,
-                         hover_name=exoplanets['host_name'],
-                         # hover_data=exoplanets[['sy_star_count', 'sy_planet_count']],
-                         title='HOST STAR ATTRIBUTES',
-                         labels=chart_labels,
-                         )
-
-st.plotly_chart(exo_chart_1, use_container_width=False, sharing="streamlit")
-
-# prop_params_header = st.header('INPUT PARAMETERS:')
+exoplanet_list_prompt = st.header('SELECT EXOPLANET:')
 #
-# exoplanet_list = st.selectbox('EXOPLANETS:',
+exoplanet_list = st.selectbox('EXOPLANETS:', (exoplanet_names))
+
 #                       ('TBU',
 #                        'TBU'
 #                        'TBU'
 #                        'TBU'
 #                        'TBU')
 #                       )
+
+exo_chart_1 = px.scatter(exoplanets,
+                         x=exoplanets['pl_rade'],
+                         y=exoplanets['pl_bmasse'],
+                         color=exoplanets['pl_orbper'],
+                         color_continuous_scale=Tealrose,
+                         color_discrete_sequence=Tealrose,
+                         hover_name=exoplanets['pl_name'],
+                         hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
+                         title='EXOPLANET ATTRIBUTES',
+                         labels=chart_labels,
+                         )
+
+star_chart_1 = px.scatter(exoplanets,
+                         x=exoplanets['st_radius'],
+                         y=exoplanets['st_mass'],
+                         color=exoplanets['st_temp_eff_k'],
+                         color_continuous_scale=Temps,
+                         color_discrete_sequence=Temps,
+                         hover_name=exoplanets['host_name'],
+                         hover_data=exoplanets[['sy_star_count', 'sy_planet_count']],
+                         title='HOST STAR ATTRIBUTES',
+                         labels=chart_labels,
+                         )
+
+# disc_chart_1 = px.bar(exoplanets,
+#                          x=exoplanets['disc_facility'],
+#                          y=exoplanets['st_mass'],
+#                          color=exoplanets['st_temp_eff_k'],
+#                          color_continuous_scale=Sunsetdark, #'YlOrRd', #'Tropic',
+#                          color_discrete_sequence=Sunsetdark,
+#                          hover_name=exoplanets['host_name'],
+#                          hover_data=exoplanets[['sy_star_count', 'sy_planet_count']],
+#                          title='HOST STAR ATTRIBUTES',
+#                          labels=chart_labels,
+#                          )
+
+st.plotly_chart(exo_chart_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(star_chart_1, use_container_width=False, sharing="streamlit")
+
+
 
 # st.sidebar.xyz
 
@@ -258,6 +293,35 @@ st.stop()
 ### SCRATCH NOTES
 
 
+## FONTS ##
+
+# t = st.radio("Toggle to see font change", [True, False])
+#
+# if t:
+#     st.markdown(
+#         """
+#         <style>
+# @font-face {
+#   font-family: 'Tangerine';
+#   font-style: normal;
+#   font-weight: 400;
+#   src: url(https://fonts.gstatic.com/s/tangerine/v12/IurY6Y5j_oScZZow4VOxCZZM.woff2) format('woff2');
+#   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+# }
+#
+#     html, body, [class*="css"]  {
+#     font-family: 'Tangerine';
+#     font-size: 48px;
+#     }
+#     </style>
+#
+#     """,
+#         unsafe_allow_html=True,
+#     )
+#
+# "# Hello"
+#
+# """This font will look different, based on your choice of radio button"""
 
 # CONFIG TEMPLATE
     # st.set_page_config(page_title="CSS hacks", page_icon=":smirk:")
