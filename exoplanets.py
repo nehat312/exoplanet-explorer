@@ -269,25 +269,22 @@ st.plotly_chart(scatter_matrix_1, use_container_width=False, sharing="streamlit"
 
 ## EXTERNAL LINKS ##
 
+github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
+nasa_caltech_link = '[NASA ARCHIVES](https://exoplanetarchive.ipac.caltech.edu/)'
+
 left_column, right_column = st.columns(2)
 left_button = left_column.button('GITHUB REPOSITORY')
 right_button = right_column.button('NASA ARCHIVES')
 if left_button:
-    left_column.write('https://github.com/nehat312/exoplanet-explorer')
+    # left_column.write('https://github.com/nehat312/exoplanet-explorer')
+    st.markdown(github_link, unsafe_allow_html=True)
 if right_button:
-    right_column.write('https://exoplanetarchive.ipac.caltech.edu/')
-    # left_column.write('https://public.tableau.com/shared/S4GKR7QYB?:display_count=n&:origin=viz_share_link')
-
-github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
-st.markdown(github_link, unsafe_allow_html=True)
-
-nasa_caltech_link = '[NASA ARCHIVES](https://exoplanetarchive.ipac.caltech.edu/)'
-st.markdown(nasa_caltech_link, unsafe_allow_html=True)
+    # right_column.write('https://exoplanetarchive.ipac.caltech.edu/')
+    st.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
 
 # st.success('')
 # st.warning('')
-# st.write('*~BETA MODE~*')
 
 st.stop()
 
