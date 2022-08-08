@@ -179,7 +179,7 @@ scatter_matrix_1 = px.scatter_matrix(exoplanets,
                                      # title='DISCOVERY METHOD',
                                      labels=chart_labels,
                                      # height=400,
-                                     width=600,
+                                     width=800,
                                      )
 
 st.plotly_chart(exo_chart_1, use_container_width=False, sharing="streamlit")
