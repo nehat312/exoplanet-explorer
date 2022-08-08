@@ -170,15 +170,17 @@ star_chart_1 = px.scatter(exoplanets,
                          )
 
 scatter_matrix_1 = px.scatter_matrix(exoplanets,
-                                 dimensions=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #'st_radius', 'st_mass',
-                                 color=exoplanets['st_temp_eff_k'],
-                                 color_continuous_scale=Temps,
-                                 color_discrete_sequence=Temps,
-                                 hover_name=exoplanets['pl_name'],
-                                 hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
-                                 # title='DISCOVERY METHOD',
-                                 labels=chart_labels,
-                                 )
+                                     dimensions=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #'st_radius', 'st_mass',
+                                     color=exoplanets['st_temp_eff_k'],
+                                     color_continuous_scale=Temps,
+                                     color_discrete_sequence=Temps,
+                                     hover_name=exoplanets['pl_name'],
+                                     hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
+                                     # title='DISCOVERY METHOD',
+                                     labels=chart_labels,
+                                     # height=400,
+                                     width=600,
+                                     )
 
 st.plotly_chart(exo_chart_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(star_chart_1, use_container_width=False, sharing="streamlit")
