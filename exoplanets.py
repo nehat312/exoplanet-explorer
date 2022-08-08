@@ -125,14 +125,14 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 
-## INTRODUCTION ##
+## HEADER ##
 st.container()
 
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Data sourced from NASA-CalTECH mission archives*')
 
 exo_chart_1 = px.scatter(exoplanets,
-                         x=exoplanets['st_rad'],
+                         x=exoplanets['st_radius'],
                          y=exoplanets['st_mass'],
                          color=exoplanets['st_temp_eff_k'],
                          color_continuous_scale=Sunsetdark, #'YlOrRd', #'Tropic',
