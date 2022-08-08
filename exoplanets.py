@@ -170,7 +170,7 @@ star_chart_1 = px.scatter(exoplanets,
                          )
 
 scatter_matrix_1 = px.scatter_matrix(exoplanets,
-                                 dimensions=['st_radius', 'st_mass', 'pl_rade', 'pl_bmasse', 'pl_orbper'],
+                                 dimensions=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #'st_radius', 'st_mass',
                                  color=exoplanets['st_temp_eff_k'],
                                  color_continuous_scale=Temps,
                                  color_discrete_sequence=Temps,
