@@ -178,7 +178,7 @@ scatter_matrix_1 = px.scatter_matrix(exoplanets,
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      # title='DISCOVERY METHOD',
                                      labels=chart_labels,
-                                     height=600,
+                                     height=800,
                                      width=800,
                                      )
 
