@@ -36,13 +36,13 @@ from PIL import Image
 ## DIRECTORY CONFIGURATION ##
 abs_path = r'https://raw.githubusercontent.com/nehat312/exoplanet-explorer/main'
 exoplanet_path = abs_path + '/data/NASA_Exoplanets-8-7-22.csv'
-engine_csv = r'https://raw.githubusercontent.com/nehat312/prop-swap/main/data/engine.csv'
 
 ## DATA IMPORT ##
 exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, header=0, index_col='pl_name'#,
 
 # print(exoplanets.info())
-# exoplanets.dropna(inplace=True)
+
+exoplanets.dropna(inplace=True)
 
 # print(exoplanets.info())
 # print(exoplanets.columns)
