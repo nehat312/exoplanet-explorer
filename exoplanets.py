@@ -156,7 +156,7 @@ exo_matrix_1 = px.scatter_matrix(exoplanets,
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      title='EXOPLANET ATTRIBUTES',
                                      labels=chart_labels,
-                                     height=700,
+                                     height=750,
                                      width=800,
                                      )
 
@@ -169,7 +169,7 @@ star_matrix_1 = px.scatter_matrix(exoplanets,
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      title='STAR ATTRIBUTES',
                                      labels=chart_labels,
-                                     height=700,
+                                     height=750,
                                      width=800,
                                      )
 
