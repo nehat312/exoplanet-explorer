@@ -273,11 +273,11 @@ st.plotly_chart(star_chart_1, use_container_width=False, sharing="streamlit")
 
 left_column, right_column = st.columns(2)
 left_button = left_column.button('GITHUB REPOSITORY')
-right_button = right_column.button('CONTACT INFORMATION')
+right_button = right_column.button('DATA SOURCE')
 if left_button:
     left_column.write('https://github.com/nehat312/exoplanet-explorer')
 if right_button:
-    right_column.write('')
+    right_column.write('https://exoplanetarchive.ipac.caltech.edu/')
     # left_column.write('https://public.tableau.com/shared/S4GKR7QYB?:display_count=n&:origin=viz_share_link')
 
 
