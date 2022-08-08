@@ -97,10 +97,10 @@ chart_labels = {'pl_name':'PLANET NAME',
                 'pl_radj':'PLANET RAD (J)',
                 'pl_bmasse':'PLANET MASS (E)',
                 'pl_bmassj':'PLANET MASS (J)',
-                'st_temp_eff_k':'STAR TEMPERATURE (K)',
+                'st_temp_eff_k':'STAR TEMP. (K)',
                 'st_radius':'STAR RADIUS',
                 'st_mass':'STAR MASS',
-                'st_metallicity':'STAR METALLICITY',
+                'st_metallicity':'STAR METALLICITY (FE/H)',
                 'st_surf_gravity':'STAR SURFACE GRAVITY',
                 'sy_distance_pc':'STAR DISTANCE (PC)',
                 'ra':'RIGHT ASCENSION',
@@ -141,16 +141,9 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-exoplanet_list_prompt = st.header('SELECT EXOPLANET:')
-#
+exoplanet_list_prompt = st.subheader('SELECT EXOPLANET:')
 exoplanet_list = st.selectbox('EXOPLANETS:', (exoplanet_names))
 
-#                       ('TBU',
-#                        'TBU'
-#                        'TBU'
-#                        'TBU'
-#                        'TBU')
-#                       )
 
 exo_chart_1 = px.scatter(exoplanets,
                          x=exoplanets['pl_rade'],
@@ -177,7 +170,7 @@ star_chart_1 = px.scatter(exoplanets,
                          )
 
 scatter_matrix_1 = px.scatter_matrix(exoplanets,
-                                 dimensions=['st_radius', 'st_mass', 'st_temp_eff_k', 'pl_rade', 'pl_bmasse', 'pl_orbper'],
+                                 dimensions=['st_radius', 'st_mass', 'pl_rade', 'pl_bmasse', 'pl_orbper'],
                                  color=exoplanets['st_temp_eff_k'],
                                  color_continuous_scale=Temps,
                                  color_discrete_sequence=Temps,
@@ -192,7 +185,7 @@ st.plotly_chart(star_chart_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(scatter_matrix_1, use_container_width=False, sharing="streamlit")
 
 
-st.plotly_chart([exo_chart_1, star_chart_1], use_container_width=False, sharing="streamlit")
+st.plotly_chart(exo_chart_1, star_chart_1, use_container_width=False, sharing="streamlit")
 
 
 
