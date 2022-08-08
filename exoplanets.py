@@ -41,7 +41,6 @@ engine_csv = r'https://raw.githubusercontent.com/nehat312/prop-swap/main/data/en
 ## DATA IMPORT ##
 exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, header=0, index_col='pl_name'#,
 
-#%%
 # print(exoplanets.info())
 # exoplanets.dropna(inplace=True)
 
@@ -49,7 +48,6 @@ print(exoplanets.info())
 print(exoplanets.columns)
 # print(exoplanets.head())
 
-#%%
 ## VARIABLE ASSIGNMENT ##
 ## USED FOR MODELING
 exoplanet_num_cols = exoplanets[['sy_star_count', 'sy_planet_count',
