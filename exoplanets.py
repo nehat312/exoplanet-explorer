@@ -141,17 +141,22 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-exoplanet_list_prompt = st.subheader('SELECT EXOPLANET:')
-exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
+disc_info_1 = px.histogram(exoplanets,
+                           x=exoplanets['disc_telescope'],
+                           title='EXOPLANET DISCOVERY',
+                           labels=chart_labels,
+                           height=800,
+                           width=800,
+                           )
 
-exo_map_1 = px.scatter_geo(exoplanets,
-                        lat=[['glat']],
-                        lon=[['glon']],
-                        title='EXOPLANET GLAT / GLON',
-                        labels=chart_labels,
-                        height=800,
-                        width=800,
-                        )
+# exo_map_1 = px.scatter_geo(exoplanets,
+#                         lat=[['glat']],
+#                         lon=[['glon']],
+#                         title='EXOPLANET GLAT / GLON',
+#                         labels=chart_labels,
+#                         height=800,
+#                         width=800,
+#                         )
 
 # exo_select_1 = px.(exoplanet_selection,
 #                                  dimensions=exoplanets['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #, 'pl_orbsmax'
@@ -218,15 +223,17 @@ star_scatter_1 = px.scatter(exoplanets,
 
 ## DISCOVERIES OVER TIME ##
 
-st.plotly_chart(exo_map_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
+# st.plotly_chart(exo_map_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
 
-st.plotly_chart(exo_scatter_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(star_scatter_1, use_container_width=False, sharing="streamlit")
+# st.plotly_chart(exo_scatter_1, use_container_width=False, sharing="streamlit")
+# st.plotly_chart(star_scatter_1, use_container_width=False, sharing="streamlit")
 
 
-
+exoplanet_list_prompt = st.subheader('SELECT EXOPLANET:')
+exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
 
 # st.sidebar.xyz
 
