@@ -143,26 +143,26 @@ st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 disc_info_1 = px.histogram(exoplanets,
                            x=exoplanets['disc_facility'],
-                           color=exoplanets['disc_method'],
+                           # color=exoplanets['disc_method'],
                            color_discrete_sequence=Tropic,
                            hover_name=exoplanets['pl_name'],
                            hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                            title='EXOPLANET DISCOVERY METHOD / FACILITY',
                            labels=chart_labels,
-                           height=400,
+                           height=800,
                            width=800,
                            )
 
 density_map_1 = px.density_contour(exoplanets,
                    x=exoplanets['ra'],
                    y=exoplanets['dec'],
-                   color=exoplanets['st_temp_eff_k'],
+                   # color=exoplanets['st_temp_eff_k'],
                    color_discrete_sequence=Temps,
                                    hover_name=exoplanets['pl_name'],
                                    hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                                    title='EXOPLANET RIGHT ASCENSION / DECLINATION',
                                    labels=chart_labels,
-                                   height=400,
+                                   height=800,
                                    width=800,
                                    )
 
