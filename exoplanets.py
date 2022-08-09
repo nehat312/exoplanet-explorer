@@ -142,7 +142,7 @@ st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 disc_year_1 = px.scatter(exoplanets,
-                      x=exoplanets['ra'].sort_values(ascending=True),
+                      x=exoplanets['ra'],
                       y=exoplanets['dec'], #['sy_distance_pc'],
                            color=exoplanets['disc_method'],
                            color_discrete_sequence=Temps,
