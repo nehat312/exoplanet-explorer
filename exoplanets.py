@@ -38,7 +38,7 @@ abs_path = r'https://raw.githubusercontent.com/nehat312/exoplanet-explorer/main'
 exoplanet_path = abs_path + '/data/NASA_Exoplanets-8-7-22.csv'
 
 ## DATA IMPORT ##
-exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, header=0, index_col='pl_name'#,
+exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid', infer_datetime_format=True) #, header=0, index_col='pl_name'#,
 
 
 # exoplanets.dropna(inplace=True)
@@ -47,7 +47,8 @@ exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, hea
 # print(exoplanets.columns)
 # print(exoplanets.head())
 
-exoplanets['disc_year'] = exoplanets['disc_year'].astype(int)
+# pd.to_numeric(exoplanets['disc_year'])
+# exoplanets['disc_year'].astype(int)
 print(exoplanets.info())
 
 
