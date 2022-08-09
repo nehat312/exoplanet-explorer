@@ -109,6 +109,9 @@ chart_labels = {'pl_name':'PL. NAME',
                 'glat':'GALACTIC LATITUDE'
                 }
 
+print(exoplanets.glat)
+#%%
+
 exoplanet_names = list(exoplanets['pl_name'])
 star_names = list(exoplanets['host_name'])
 
@@ -152,8 +155,8 @@ disc_info_1 = px.histogram(exoplanets,
                            )
 
 density_map_1 = px.density_contour(exoplanets,
-                   x=[['glat']],
-                   y=[['glon']],
+                   x=['ra'],
+                   y=['dec'],
                    color=exoplanets['disc_method'],
                    color_discrete_sequence=Temps,
                            title='EXOPLANET LOC',
