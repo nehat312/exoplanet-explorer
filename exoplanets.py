@@ -38,7 +38,7 @@ abs_path = r'https://raw.githubusercontent.com/nehat312/exoplanet-explorer/main'
 exoplanet_path = abs_path + '/data/NASA_Exoplanets-8-7-22.csv'
 
 ## DATA IMPORT ##
-exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid', infer_datetime_format=True, parse_dates=True) #, header=0, index_col='pl_name'#,
+exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, header=0, index_col='pl_name'#,
 
 
 # exoplanets.dropna(inplace=True)
@@ -49,7 +49,7 @@ exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid', infer_
 
 # pd.to_numeric(exoplanets['disc_year'])
 # exoplanets['disc_year'].astype(int)
-print(exoplanets.info())
+print(exoplanets['disc_year'].unique())
 
 
 #%%
@@ -120,7 +120,10 @@ star_names = list(exoplanets['host_name'])
 
 # print(exoplanets.disc_method.unique())
 
+exoplanets['disc_year'].apply(np.int64)
+print(exoplanets.describe())
 
+#%%
 
 # #%%
 
@@ -157,7 +160,7 @@ disc_year_1 = px.scatter(exoplanets,
                            animation_frame=exoplanets['disc_year'].sort_values(ascending=True),
                            title='EXOPLANET DISCOVERY YEAR',
                            labels=chart_labels,
-                         range_x=list(range(min(exoplanets['disc_year']),max(exoplanets['disc_year']),1)),
+                         range_x=list(range(int(min(exoplanets['disc_year']))),int(max(exoplanets['disc_year'])),1),
                            height=800,
                            width=800,
                            )
