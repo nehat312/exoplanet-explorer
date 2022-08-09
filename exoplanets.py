@@ -141,6 +141,21 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
+disc_year_1 = px.line(exoplanets,
+                           x=exoplanets['disc_year'],
+                           color=exoplanets['disc_method'],
+                           color_discrete_sequence=Temps,
+                           hover_name=exoplanets['pl_name'],
+                           hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
+                           animation_frame=['disc_year'],
+                           title='EXOPLANET DISCOVERY YEAR',
+                           labels=chart_labels,
+                           height=800,
+                           width=800,
+                           )
+
+
+
 disc_info_1 = px.histogram(exoplanets,
                            x=exoplanets['disc_method'],
                            color=exoplanets['disc_facility'],
@@ -157,8 +172,8 @@ density_map_1 = px.density_contour(exoplanets,
                                    x=exoplanets['ra'],
                                    y=exoplanets['dec'],
                                    z=exoplanets['sy_distance_pc'],
-                   color=exoplanets['disc_method'],
-                   color_discrete_sequence=Temps,
+                                   color=exoplanets['disc_method'],
+                                   color_discrete_sequence=Temps,
                                    hover_name=exoplanets['pl_name'],
                                    hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                                    title='EXOPLANET RIGHT ASCENSION / DECLINATION',
@@ -242,6 +257,7 @@ star_scatter_1 = px.scatter(exoplanets,
 
 ## DISCOVERIES OVER TIME ##
 
+st.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
 
 st.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
