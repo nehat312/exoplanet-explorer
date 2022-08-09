@@ -167,6 +167,7 @@ density_map_1 = px.density_contour(exoplanets,
                                    width=1200,
                                    )
 
+
 # exo_map_1 = px.scatter_geo(exoplanets,
 #                         lat=[['glat']],
 #                         lon=[['glon']],
