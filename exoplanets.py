@@ -329,9 +329,9 @@ exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
 # if __name__ == "__main__":
 #     main()
 
-# ## IMAGE EMBEDDING ##
-# test_img = Image.open('ROTATE.jpg')
-# st.image(test_img)
+## IMAGE EMBEDDING ##
+jwst_img_1 = Image.open('/images/JWST-1.png')
+st.image(jwst_img_1)
 
 ## EXTERNAL LINKS ##
 
