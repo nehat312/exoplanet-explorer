@@ -144,7 +144,7 @@ st.subheader('*Sourced from NASA-CalTECH mission archives*')
 exoplanet_list_prompt = st.subheader('SELECT EXOPLANET:')
 exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
 
-exo_map_1 = px.line_geo(exoplanets,
+exo_map_1 = px.scatter_geo(exoplanets,
                         lat=[['glat']],
                         lon=[['glon']],
                         title='EXOPLANET GLAT / GLON',
