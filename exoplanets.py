@@ -141,7 +141,7 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-disc_year_1 = px.line(exoplanets,
+disc_year_1 = px.scatter(exoplanets,
                       x=exoplanets['disc_year'].sort_values(ascending=True),
                       y=exoplanets['sy_distance_pc'],
                            color=exoplanets['disc_method'],
