@@ -143,7 +143,7 @@ st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 disc_info_1 = px.histogram(exoplanets,
                            x=exoplanets['disc_facility'],
-                           color=exoplanets['disc_telescope'],
+                           color=exoplanets['disc_method'],
                            color_discrete_sequence=Temps,
                            title='EXOPLANET DISCOVERY',
                            labels=chart_labels,
