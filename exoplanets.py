@@ -142,13 +142,23 @@ st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 exoplanet_list_prompt = st.subheader('SELECT EXOPLANET:')
-exoplanet_list = st.selectbox('EXOPLANETS:', (exoplanet_names))
+exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
 
-
-
-
-exo_matrix_1 = px.scatter_matrix(exoplanets,
-                                     dimensions=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen', 'pl_orbsmax'],
+geo_line_1 = px.line_geo(exoplanets,
+            lat=['glat'],
+            lon=['glon'],
+            color=exoplanets['st_temp_eff_k'],
+            # color_continuous_scale=Temps,
+            color_discrete_sequence=Temps,
+            hover_name=exoplanets['pl_name'],
+            hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
+            title='EXOPLANET GLON / GLAT',
+            labels=chart_labels,
+            height=1200,
+            width=1200,
+            )
+exo_select_1 = px.scatter(exoplanet_selection,
+                          x=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #, 'pl_orbsmax'
                                      color=exoplanets['st_temp_eff_k'],
                                      color_continuous_scale=Temps,
                                      color_discrete_sequence=Temps,
@@ -158,6 +168,19 @@ exo_matrix_1 = px.scatter_matrix(exoplanets,
                                      labels=chart_labels,
                                      height=1200,
                                      width=1200,
+                                     )
+
+exo_matrix_1 = px.scatter_matrix(exoplanets,
+                                     dimensions=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #, 'pl_orbsmax'
+                                     color=exoplanets['st_temp_eff_k'],
+                                     color_continuous_scale=Temps,
+                                     color_discrete_sequence=Temps,
+                                     hover_name=exoplanets['pl_name'],
+                                     hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
+                                     title='EXOPLANET ATTRIBUTES',
+                                     labels=chart_labels,
+                                     height=800,
+                                     width=800,
                                      )
 
 star_matrix_1 = px.scatter_matrix(exoplanets,
@@ -199,6 +222,7 @@ star_scatter_1 = px.scatter(exoplanets,
 
 ## DISCOVERIES OVER TIME ##
 
+st.plotly_chart(geo_line_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
 
