@@ -152,8 +152,8 @@ disc_info_1 = px.histogram(exoplanets,
                            )
 
 density_map_1 = px.density_contour(exoplanets,
-                   x=exoplanets['glat'],
-                   y=exoplanets['glon'],
+                   x=[['glat']],
+                   y=[['glon']],
                    color=exoplanets['disc_method'],
                    color_discrete_sequence=Temps,
                            title='EXOPLANET LOC',
