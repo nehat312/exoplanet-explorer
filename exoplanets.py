@@ -145,8 +145,8 @@ exoplanet_list_prompt = st.subheader('SELECT EXOPLANET:')
 exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
 
 geo_line_1 = px.line_geo(exoplanets,
-            lat=exoplanets['glat'],
-            lon=exoplanets['glon'],
+            lat=exoplanets.glat,
+            lon=exoplanets.glon,
             color=exoplanets['st_temp_eff_k'],
             # color_continuous_scale=Temps,
             color_discrete_sequence=Temps,
