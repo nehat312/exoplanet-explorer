@@ -152,15 +152,15 @@ disc_info_1 = px.histogram(exoplanets,
                            )
 
 density_map_1 = px.density_contour(exoplanets,
-                   x=['ra'],
-                   y=['dec'],
+                   x=exoplanets['ra'],
+                   y=exoplanets['dec'],
                    color=exoplanets['disc_method'],
                    color_discrete_sequence=Temps,
-                           title='EXOPLANET LOC',
-                           labels=chart_labels,
-                           height=800,
-                           width=800,
-                           )
+                                   title='EXOPLANET LOC',
+                                   labels=chart_labels,
+                                   height=800,
+                                   width=800,
+                                   )
 
 # exo_map_1 = px.scatter_geo(exoplanets,
 #                         lat=[['glat']],
