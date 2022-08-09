@@ -120,8 +120,9 @@ star_names = list(exoplanets['host_name'])
 
 # print(exoplanets.disc_method.unique())
 
-exoplanets['disc_year'].apply(np.int64)
-print(exoplanets.describe())
+mean_year = 2022
+exoplanets['disc_year'].fillna(mean_year, inplace=True)
+print(exoplanets['disc_year'].unique())
 
 #%%
 
@@ -160,7 +161,7 @@ disc_year_1 = px.scatter(exoplanets,
                            animation_frame=exoplanets['disc_year'].sort_values(ascending=True),
                            title='EXOPLANET DISCOVERY YEAR',
                          labels=chart_labels,
-                         range_x=np.arange((min(exoplanets['disc_year']),max(exoplanets['disc_year']))), #, dtype=int
+                         # range_x=np.arange((exoplanets['disc_year'])), #, dtype=int
                            height=800,
                            width=800,
                            )
