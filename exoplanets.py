@@ -330,7 +330,7 @@ exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
 #     main()
 
 ## IMAGE EMBEDDING ##
-jwst_img_1 = Image.open('/images/JWST-1.png')
+jwst_img_1 = Image.open('JWST-1.png')
 st.image(jwst_img_1)
 
 ## EXTERNAL LINKS ##
