@@ -151,8 +151,8 @@ st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 disc_year_1 = px.bar(exoplanets,
-                     x=exoplanets['disc_year'],
-                     # y=exoplanets['sy_distance_pc'],
+                     # x=exoplanets['disc_year'],
+                     y=exoplanets['disc_facility'],
                      color=exoplanets['disc_method'],
                            color_discrete_sequence=Temps,
                            hover_name=exoplanets['pl_name'],
@@ -163,6 +163,7 @@ disc_year_1 = px.bar(exoplanets,
                          labels=chart_labels,
                          range_x=[1989, 2022],
                          range_y=[0,10000],
+                     orientation='h',
                            height=800,
                            width=800,
                            )
