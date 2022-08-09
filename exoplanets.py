@@ -141,8 +141,8 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-disc_info_1 = px.bar_polar(exoplanets,
-                           r=exoplanets['disc_facility'],
+disc_info_1 = px.bar(exoplanets,
+                           x=exoplanets['disc_facility'],
                            color=exoplanets['disc_method'],
                            color_discrete_sequence=Temps,
                            title='EXOPLANET DISCOVERY',
