@@ -333,6 +333,8 @@ exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
 jwst_img_1 = Image.open('JWST-1.png')
 st.image(jwst_img_1)
 
+
+
 ## EXTERNAL LINKS ##
 
 github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
@@ -356,6 +358,19 @@ right_button = right_column.markdown(nasa_caltech_link, unsafe_allow_html=True)
 # st.warning('')
 
 st.stop()
+
+
+### INTERPRETATION ###
+
+# Declination (DEC) is the celestial sphere's equivalent of latitude and it is expressed in degrees, as is latitude.
+# For DEC, + and - refer to north and south, respectively.
+# The celestial equator is 0° DEC, and the poles are +90° and -90°.
+
+# Right ascension (RA) is the celestial equivalent of longitude.
+# RA can be expressed in degrees, but it is more common to specify it in hours, minutes, and seconds of time:
+    # the sky appears to turn 360° in 24 hours, or 15° in one hour.
+    # So an hour of RA equals 15° of sky rotation.
+
 
 
 ### SCRATCH NOTES
