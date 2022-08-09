@@ -38,7 +38,7 @@ exoplanet_path = abs_path + '/data/NASA_Exoplanets-8-7-22.csv'
 
 ## DATA IMPORT ##
 exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, header=0, index_col='pl_name'#,
-
+exoplanets.sort_values(by='disc_year', inplace=True)
 
 # exoplanets.dropna(inplace=True)
 
@@ -48,34 +48,8 @@ exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, hea
 
 # pd.to_numeric(exoplanets['disc_year'])
 # exoplanets['disc_year'].astype(int)
-print(exoplanets['disc_year'].unique())
 
-
-#%%
-
-## VARIABLE ASSIGNMENT ##
-# ## USED FOR MODELING
-# exoplanet_num_cols = exoplanets[['sy_star_count', 'sy_planet_count',
-#                                   'pl_orbper', 'pl_orbsmax', 'pl_rade', 'pl_radj',
-#                                  'pl_bmasse', 'pl_bmassj', 'pl_bmassprov', 'pl_orbeccen',
-#                                  'ttv_flag', 'st_temp_eff_k', 'st_temp_eff_k1', 'st_temp_eff_k2', 'st_radius', 'st_mass',
-#                                   'st_metallicity', 'st_surf_gravity', 'rastr', 'ra', 'decstr', 'dec',
-#                                   'sy_distance_pc', 'sy_vmag', 'sy_kmag', 'sy_gaiamag'
-#                                  ]]
-#
-# ## USED FOR VISUALIZATION
-# exoplanets_all_cols = exoplanets[['loc_rowid',
-#                                   'host_name', 'sy_star_count', 'sy_planet_count',
-#                                   'disc_method', 'disc_year', 'disc_facility',
-#                                   'disc_telescope', 'disc_instrument', 'pl_controv_flag', 'pl_orbper',
-#                                   'pl_orbsmax', 'pl_rade', 'pl_radj', 'pl_bmasse', 'pl_bmassj',
-#                                   'pl_bmassprov', 'pl_orbeccen', 'ttv_flag', 'st_temp_eff_k',
-#                                   'st_temp_eff_k1', 'st_temp_eff_k2', 'st_radius', 'st_mass',
-#                                   'st_metallicity', 'st_surf_gravity', 'rastr', 'ra', 'decstr', 'dec',
-#                                   'sy_distance_pc', 'sy_vmag', 'sy_kmag', 'sy_gaiamag'
-#                                   ]]
-
-## STYLE DICTIONARY ##
+## FORMAT / STYLE ##
 YlOrRd = px.colors.sequential.YlOrRd
 Mint = px.colors.sequential.Mint
 Electric = px.colors.sequential.Electric
@@ -158,8 +132,8 @@ disc_year_1 = px.bar(exoplanets,
                            hover_name=exoplanets['pl_name'],
                            hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope']],
                      barmode='group',
-                     
-                           animation_frame=exoplanets['disc_year'].sort_values(ascending=True),
+
+                           animation_frame=exoplanets['disc_year'],
                            title='EXOPLANET DISCOVERY YEAR',
                          labels=chart_labels,
                          range_x=[1989, 2022],
