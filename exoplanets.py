@@ -164,7 +164,7 @@ density_map_1 = px.density_contour(exoplanets,
                                    title='EXOPLANET RIGHT ASCENSION / DECLINATION',
                                    labels=chart_labels,
                                    height=800,
-                                   width=800,
+                                   width=1200,
                                    )
 
 # exo_map_1 = px.scatter_geo(exoplanets,
