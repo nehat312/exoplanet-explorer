@@ -109,9 +109,6 @@ chart_labels = {'pl_name':'PL. NAME',
                 'glat':'GALACTIC LATITUDE'
                 }
 
-print(exoplanets.glat)
-#%%
-
 exoplanet_names = list(exoplanets['pl_name'])
 star_names = list(exoplanets['host_name'])
 
