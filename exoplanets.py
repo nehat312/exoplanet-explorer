@@ -143,7 +143,7 @@ st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 disc_info_1 = px.histogram(exoplanets,
                            x=exoplanets['disc_facility'],
-                           # color=exoplanets['disc_method'],
+                           color=exoplanets['disc_method'],
                            color_discrete_sequence=Tropic,
                            hover_name=exoplanets['pl_name'],
                            hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
@@ -156,7 +156,8 @@ disc_info_1 = px.histogram(exoplanets,
 density_map_1 = px.density_contour(exoplanets,
                    x=exoplanets['ra'],
                    y=exoplanets['dec'],
-                   # color=exoplanets['st_temp_eff_k'],
+                                   z=exoplanets['sy_distance_pc'],
+                   color=exoplanets['disc_method'],
                    color_discrete_sequence=Temps,
                                    hover_name=exoplanets['pl_name'],
                                    hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
@@ -240,10 +241,11 @@ star_scatter_1 = px.scatter(exoplanets,
 
 ## DISCOVERIES OVER TIME ##
 
-st.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
+
 st.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
 
 # st.plotly_chart(exo_scatter_1, use_container_width=False, sharing="streamlit")
 # st.plotly_chart(star_scatter_1, use_container_width=False, sharing="streamlit")
