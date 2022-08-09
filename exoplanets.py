@@ -141,11 +141,12 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-disc_info_1 = px.bar(exoplanets,
+disc_info_1 = px.histogram(exoplanets,
                            x=exoplanets['disc_facility'],
                            color=exoplanets['disc_method'],
                            color_discrete_sequence=Temps,
-                           title='EXOPLANET DISCOVERY',
+                           facet_col=exoplanets['disc_telescope'],
+                           title='EXOPLANET DISCOVERY METHODS',
                            labels=chart_labels,
                            height=800,
                            width=800,
