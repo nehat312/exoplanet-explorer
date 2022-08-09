@@ -191,6 +191,8 @@ density_map_1 = px.density_contour(exoplanets,
                                    hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                                    title='EXOPLANET RIGHT ASCENSION / DECLINATION',
                                    labels=chart_labels,
+                                   log_x=True,
+                                   log_y=True,
                                    height=600,
                                    width=800,
                                    )
