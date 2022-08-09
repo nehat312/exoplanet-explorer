@@ -44,10 +44,15 @@ exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, hea
 # exoplanets.dropna(inplace=True)
 
 # print(exoplanets.info())
-print(exoplanets.columns)
+# print(exoplanets.columns)
 # print(exoplanets.head())
 
+exoplanets['disc_year'] = exoplanets['disc_year'].astype(int)
+print(exoplanets.info())
+
+
 #%%
+
 ## VARIABLE ASSIGNMENT ##
 # ## USED FOR MODELING
 # exoplanet_num_cols = exoplanets[['sy_star_count', 'sy_planet_count',
