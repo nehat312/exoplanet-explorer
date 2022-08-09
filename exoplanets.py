@@ -126,20 +126,20 @@ st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 disc_year_1 = px.bar(exoplanets,
                      x=exoplanets['disc_year'],
-                     y=exoplanets['disc_telescope'],
+                     y=exoplanets['disc_method'],
                      color=exoplanets['disc_method'],
                      color_discrete_sequence=Temps,
                      hover_name=exoplanets['pl_name'],
                      hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope']],
                      # barmode='group',
-                     # animation_frame=exoplanets['disc_year'],
+                     animation_frame=exoplanets['disc_year'],
                      title='EXOPLANET DISCOVERY YEAR',
                      labels=chart_labels,
                      range_x=[1989, 2022],
                      range_y=[0,10000],
-                     orientation='h',
                      height=800,
                      width=800,
+                     orientation='h',
                      )
 
 
