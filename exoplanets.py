@@ -142,11 +142,21 @@ st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 disc_info_1 = px.histogram(exoplanets,
-                           x=exoplanets['disc_facility'],
+                           x=exoplanets['disc_telescope'],
                            color=exoplanets['disc_method'],
                            color_discrete_sequence=Temps,
-                           facet_col=exoplanets['disc_telescope'],
                            title='EXOPLANET DISCOVERY METHODS',
+                           labels=chart_labels,
+                           height=800,
+                           width=800,
+                           )
+
+density_map_1 = px.density_contour(exoplanets,
+                   x=exoplanets['glat'],
+                   y=exoplanets['glon'],
+                   color=exoplanets['disc_method'],
+                   color_discrete_sequence=Temps,
+                           title='EXOPLANET LOC',
                            labels=chart_labels,
                            height=800,
                            width=800,
@@ -227,7 +237,7 @@ star_scatter_1 = px.scatter(exoplanets,
 ## DISCOVERIES OVER TIME ##
 
 st.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
-# st.plotly_chart(exo_map_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
 
