@@ -160,7 +160,7 @@ disc_year_1 = px.scatter(exoplanets,
                            animation_frame=exoplanets['disc_year'].sort_values(ascending=True),
                            title='EXOPLANET DISCOVERY YEAR',
                          labels=chart_labels,
-                         range_x=np.array([range((min(exoplanets['disc_year']),max(exoplanets['disc_year'])))]),
+                         range_x=np.array([range((min(exoplanets['disc_year']),max(exoplanets['disc_year'])))], dtype=int),
                            height=800,
                            width=800,
                            )
