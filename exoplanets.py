@@ -5,9 +5,6 @@ import streamlit.components.v1 as components
 import pandas as pd
 import numpy as np
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 import plotly as ply
 import plotly.express as px
 from plotly.subplots import make_subplots
@@ -15,6 +12,8 @@ import plotly.graph_objects as go
 
 from PIL import Image
 
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 # import dash as dash
 # from dash import dash_table
 # from dash import dcc
@@ -120,9 +119,9 @@ star_names = list(exoplanets['host_name'])
 
 # print(exoplanets.disc_method.unique())
 
-mean_year = 2022
-exoplanets['disc_year'].fillna(mean_year, inplace=True)
-print(exoplanets['disc_year'].unique())
+# mean_year = 2022
+# exoplanets['disc_year'].fillna(mean_year, inplace=True)
+# print(exoplanets['disc_year'].unique())
 
 #%%
 
@@ -151,14 +150,15 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-disc_year_1 = px.scatter(exoplanets,
+disc_year_1 = px.bar(exoplanets,
                       x=exoplanets['disc_year'],
                       y=exoplanets['sy_distance_pc'], #,
                            # color=exoplanets['disc_method'],
                            color_discrete_sequence=Temps,
                            hover_name=exoplanets['pl_name'],
                            hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope']],
-                           animation_frame=exoplanets['sy_distance_pc'],#.sort_values(ascending=True),
+                           animation_frame=np.arange(min(exoplanets['disc_year']), max(exoplanets['disc_year']), 1),#.sort_values(ascending=True),
+                     animation_group=exoplanets['disc_method'],
                            title='EXOPLANET DISCOVERY YEAR',
                          labels=chart_labels,
                          range_x=[1989, 2022],
@@ -191,8 +191,8 @@ density_map_1 = px.density_contour(exoplanets,
                                    hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                                    title='EXOPLANET RIGHT ASCENSION / DECLINATION',
                                    labels=chart_labels,
-                                   height=800,
-                                   width=1200,
+                                   height=600,
+                                   width=800,
                                    )
 
 
