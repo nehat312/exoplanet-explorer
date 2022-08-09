@@ -144,30 +144,17 @@ st.subheader('*Sourced from NASA-CalTECH mission archives*')
 exoplanet_list_prompt = st.subheader('SELECT EXOPLANET:')
 exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
 
-geo_line_1 = px.line_geo(exoplanets,
-            lat=exoplanets.glat,
-            lon=exoplanets.glon,
-            color=exoplanets['st_temp_eff_k'],
-            # color_continuous_scale=Temps,
-            color_discrete_sequence=Temps,
-            hover_name=exoplanets['pl_name'],
-            hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
-            title='EXOPLANET GLON / GLAT',
-            labels=chart_labels,
-            height=1200,
-            width=1200,
-            )
-exo_select_1 = px.scatter(exoplanet_selection,
-                          x=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #, 'pl_orbsmax'
-                                     color=exoplanets['st_temp_eff_k'],
+exo_select_1 = px.scatter_matrix(exoplanet_selection,
+                                 dimensions=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #, 'pl_orbsmax'
+                                     # color=exoplanets['st_temp_eff_k'],
                                      color_continuous_scale=Temps,
                                      color_discrete_sequence=Temps,
                                      hover_name=exoplanets['pl_name'],
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      title='EXOPLANET ATTRIBUTES',
                                      labels=chart_labels,
-                                     height=1200,
-                                     width=1200,
+                                     height=800,
+                                     width=800,
                                      )
 
 exo_matrix_1 = px.scatter_matrix(exoplanets,
