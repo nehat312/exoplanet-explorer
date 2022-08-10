@@ -237,8 +237,8 @@ density_map_1 = px.density_contour(exoplanets,
 exo_matrix_1 = px.scatter_matrix(exoplanets,
                                      dimensions=['pl_rade', 'pl_bmasse', 'pl_orbper', 'pl_orbeccen'], #, 'pl_orbsmax'
                                      color=exoplanets['st_temp_eff_k'],
-                                     color_continuous_scale=Temps,
-                                     color_discrete_sequence=Temps,
+                                     color_continuous_scale=Dense,
+                                     color_discrete_sequence=Dense,
                                      hover_name=exoplanets['pl_name'],
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      title='EXOPLANET ATTRIBUTES',
@@ -250,8 +250,8 @@ exo_matrix_1 = px.scatter_matrix(exoplanets,
 star_matrix_1 = px.scatter_matrix(exoplanets,
                                      dimensions=['st_radius', 'st_mass', 'st_metallicity', 'st_surf_gravity'],
                                      color=exoplanets['st_temp_eff_k'],
-                                     color_continuous_scale=Temps,
-                                     color_discrete_sequence=Temps,
+                                     color_continuous_scale=Ice,
+                                     color_discrete_sequence=Ice,
                                      hover_name=exoplanets['pl_name'],
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      title='STAR ATTRIBUTES',
@@ -291,16 +291,15 @@ star_scatter_1 = px.scatter(exoplanets,
 #
 
 st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit") #
-st.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
 
 left_col_1, right_col_1 = st.columns(2)
 left_col_1.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
 
-# st.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
-# st.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
+
 
 # st.plotly_chart(exo_scatter_1, use_container_width=False, sharing="streamlit")
 # st.plotly_chart(star_scatter_1, use_container_width=False, sharing="streamlit")
