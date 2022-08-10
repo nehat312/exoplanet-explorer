@@ -169,7 +169,7 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              # range_color=Sunsetdark,
                              opacity=.8,
                              height=1200,
-                             width=1800,
+                             width=1600,
                              )
 
 disc_year_1 = px.bar(exoplanets,
