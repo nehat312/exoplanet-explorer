@@ -127,6 +127,7 @@ st.subheader('*Sourced from NASA-CalTECH mission archives*')
 disc_year_1 = px.histogram(exoplanets,
                      x=exoplanets['pl_name'],
                      y=exoplanets['disc_method'],
+                           histfunc='count',
                      color=exoplanets['disc_method'],
                      color_discrete_sequence=Temps,
 
