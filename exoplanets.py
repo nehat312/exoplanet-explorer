@@ -88,8 +88,12 @@ chart_labels = {'pl_name':'PL. NAME',
                 'glat':'GALACTIC LATITUDE'
                 }
 
-exoplanet_names = list(exoplanets['pl_name'])
-star_names = list(exoplanets['host_name'])
+exo_planet_list = list(exoplanets['pl_name'])
+exo_star_list = list(exoplanets['host_name'])
+disc_telescope_list = list(exoplanets['disc_telescope'])
+disc_method_list = list(exoplanets['disc_method'])
+disc_facility_list = list(exoplanets['disc_facility'])
+disc_year_list = list(exoplanets['disc_year'])
 
 # print(exoplanets.disc_method.unique())
 
@@ -97,11 +101,10 @@ star_names = list(exoplanets['host_name'])
 # exoplanets['disc_year'].fillna(mean_year, inplace=True)
 # print(exoplanets['disc_year'].unique())
 
-disc_method_time = exoplanets.groupby(['disc_method', 'disc_year']).count()
-print(disc_method_time[:30])
-#%%
-
-#%%
+# disc_method_time = exoplanets.groupby(['disc_method']).count() #, 'disc_year'
+# print(disc_method_time[:30])
+# #%%
+# print(disc_method_time.disc_year)
 
 # #%%
 
@@ -122,25 +125,28 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 
+## SIDEBAR ##
+# st.sidebar.xyz
+
+
 ## HEADER ##
 st.container()
 
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-disc_year_1 = px.line(disc_method_time,
-                     x=disc_method_time['pl_name'],
-                     y=disc_method_time['disc_method'],
+disc_year_1 = px.line(exoplanets,
+                     x=exoplanets['pl_name'],
+                     y=exoplanets['disc_method'],
                      color=exoplanets['disc_method'],
                      color_discrete_sequence=Temps,
-
                      hover_name=exoplanets['pl_name'],
                      hover_data=exoplanets[['host_name', 'disc_telescope']], # 'disc_facility',
                      # barmode='group',
                      animation_frame=exoplanets['disc_year'],
                      title='EXOPLANET DISCOVERY YEAR',
                      labels=chart_labels,
-                     range_x=[1989, 2022],
+                     range_x=[1990, 2022],
                      # range_y=[0,10000],
                      # height=800,
                      width=800,
@@ -261,10 +267,14 @@ st.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
 # st.plotly_chart(star_scatter_1, use_container_width=False, sharing="streamlit")
 
 
-exoplanet_list_prompt = st.subheader('SELECT EXOPLANET:')
-exoplanet_selection = st.selectbox('EXOPLANETS:', (exoplanet_names))
+exo_star_prompt = st.subheader('SELECT STAR:')
+exo_star_selection = st.selectbox('EXO-STARS:', (exo_star_list))
 
-# st.sidebar.xyz
+exoplanet_prompt = st.subheader('SELECT EXOPLANET:')
+exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
+
+
+
 
 # with st.form('PARAMS FORM'):
 #     if sector == "MULTIFAMILY":
