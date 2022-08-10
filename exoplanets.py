@@ -97,6 +97,10 @@ star_names = list(exoplanets['host_name'])
 # exoplanets['disc_year'].fillna(mean_year, inplace=True)
 # print(exoplanets['disc_year'].unique())
 
+disc_method_time = exoplanets.groupby(['disc_method', 'disc_year']).count()
+print(disc_method_time[:30])
+#%%
+
 #%%
 
 # #%%
@@ -124,9 +128,9 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-disc_year_1 = px.line(exoplanets,
-                     x=exoplanets['disc_year'].value_counts(),
-                     y=exoplanets['disc_method'],
+disc_year_1 = px.line(disc_method_time,
+                     x=disc_method_time['pl_name'],
+                     y=disc_method_time['disc_method'],
                      color=exoplanets['disc_method'],
                      color_discrete_sequence=Temps,
 
