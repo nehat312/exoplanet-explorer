@@ -135,7 +135,7 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-disc_year_1 = px.line(exoplanets,
+disc_year_1 = px.bar(exoplanets,
                      x=exoplanets['pl_name'],
                      y=exoplanets['disc_method'],
                      color=exoplanets['disc_method'],
@@ -147,7 +147,7 @@ disc_year_1 = px.line(exoplanets,
                      title='EXOPLANET DISCOVERY YEAR',
                      labels=chart_labels,
                      range_x=[1990, 2022],
-                     range_y=disc_method_list,
+                     # range_y=disc_method_list,
                      # height=800,
                      width=800,
                      orientation='h',
