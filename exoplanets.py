@@ -124,11 +124,12 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-disc_year_1 = px.bar(exoplanets,
-                     x=exoplanets['pl_name'].count(),
+disc_year_1 = px.histogram(exoplanets,
+                     x=exoplanets['pl_name'],
                      y=exoplanets['disc_method'],
                      color=exoplanets['disc_method'],
                      color_discrete_sequence=Temps,
+
                      hover_name=exoplanets['pl_name'],
                      hover_data=exoplanets[['host_name', 'disc_telescope']], # 'disc_facility',
                      # barmode='group',
