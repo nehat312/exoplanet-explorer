@@ -59,6 +59,7 @@ Tropic = px.colors.diverging.Tropic
 Temps = px.colors.diverging.Temps
 Tealrose = px.colors.diverging.Tealrose
 Blackbody = px.colors.sequential.Blackbody
+Ice = px.colors.sequential.ice
 
 
 chart_labels = {'pl_name':'PL. NAME',
@@ -117,7 +118,6 @@ exo_with_dist = exoplanets[['sy_distance_pc']].dropna()
 # print(disc_method_time.disc_year)
 
 
-#%%
 
 #####################
 ### STREAMLIT APP ###
@@ -151,8 +151,8 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              y=exo_drop_na['dec'],
                              z=exo_drop_na['sy_distance_pc'],
                              color=exo_drop_na['st_temp_eff_k'],
-                             color_discrete_sequence=Temps,
-                             color_continuous_scale=Temps,
+                             color_discrete_sequence=Ice,
+                             color_continuous_scale=Ice,
                              size=exo_drop_na['pl_rade'],
                              size_max=50,
                              # range_x=[0,360],
@@ -160,7 +160,7 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              range_z=[0,3000],
                              # symbol=exo_drop_na['disc_year'],
                              hover_name=exo_drop_na['pl_name'],
-                             hover_data=exo_drop_na[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
+                             hover_data=exo_drop_na[['host_name', 'disc_facility', 'disc_telescope']],
                              title='EXOPLANET RIGHT ASCENSION / DECLINATION / DISTANCE',
                              labels=chart_labels,
                              # range_color=Sunsetdark,
