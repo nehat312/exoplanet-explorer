@@ -147,12 +147,12 @@ st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 scatter_3d_1 = px.scatter_3d(exo_drop_na,
-                             x=exo_drop_na['sy_distance_pc'],
+                             x=exo_drop_na['ra'],
                              y=exo_drop_na['dec'],
-                             z=exo_drop_na['ra'],
+                             z=exo_drop_na['sy_distance_pc'],
                              color=exo_drop_na['st_temp_eff_k'],
-                             color_discrete_sequence=Sunset,
-                             color_continuous_scale=Sunset,
+                             color_discrete_sequence=Sunsetdark,
+                             color_continuous_scale=Sunsetdark,
                              size=exo_drop_na['pl_rade'],
                              size_max=50,
                              # symbol=exo_drop_na['disc_year'],
