@@ -282,12 +282,12 @@ star_scatter_1 = px.scatter(exoplanets,
                          )
 
 ## SUBPLOTS ##
-subplots = make_subplots(rows=1, cols=2)
-subplots.add_trace(scatter_3d_1, row=1, col=1)
-subplots.add_trace(scatter_3d_1, row=1, col=2)
-
-
-st.plotly_chart(subplots, height=600, width=800, use_container_width=False, sharing="streamlit")
+# subplots = make_subplots(rows=1, cols=2)
+# subplots.add_trace(scatter_3d_1, row=1, col=1)
+# subplots.add_trace(scatter_3d_1, row=1, col=2)
+#
+#
+# st.plotly_chart(subplots, height=600, width=800, use_container_width=False, sharing="streamlit")
 st.plotly_chart(scatter_3d_1, height=600, width=800, use_container_width=False, sharing="streamlit")
 st.plotly_chart(disc_year_1, height=600, width=800, use_container_width=False, sharing="streamlit")
 st.plotly_chart(density_map_1, height=600, width=800, use_container_width=False, sharing="streamlit")
