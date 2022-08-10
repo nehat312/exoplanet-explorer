@@ -140,6 +140,7 @@ disc_year_1 = px.bar(exoplanets,
                      y=exoplanets['disc_method'],
                      color=exoplanets['disc_year'],
                      color_discrete_sequence=Temps,
+                     color_continuous_scale=Temps,
                      hover_name=exoplanets['pl_name'],
                      hover_data=exoplanets[['host_name', 'disc_telescope', 'disc_facility']], #
                      barmode='group',
