@@ -60,6 +60,7 @@ Temps = px.colors.diverging.Temps
 Tealrose = px.colors.diverging.Tealrose
 Blackbody = px.colors.sequential.Blackbody
 Ice = px.colors.sequential.ice
+Dense = px.colors.sequential.dense
 
 
 chart_labels = {'pl_name':'PL. NAME',
@@ -147,8 +148,8 @@ st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 scatter_3d_1 = px.scatter_3d(exo_drop_na,
-                             x=exo_drop_na['ra'],
-                             y=exo_drop_na['dec'],
+                             x=exo_drop_na['dec'],
+                             y=exo_drop_na['ra'],
                              z=exo_drop_na['sy_distance_pc'],
                              color=exo_drop_na['st_temp_eff_k'],
                              color_discrete_sequence=Ice,
