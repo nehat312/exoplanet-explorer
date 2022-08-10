@@ -285,7 +285,7 @@ star_scatter_1 = px.scatter(exoplanets,
 #
 #
 # st.plotly_chart(subplots, height=600, width=800, use_container_width=False, sharing="streamlit")
-st.plotly_chart(scatter_3d_1,  width=1200, use_container_width=False, sharing="streamlit") #height=1800,
+st.plotly_chart(scatter_3d_1,  height=3600, width=1200, use_container_width=False, sharing="streamlit") #
 st.plotly_chart(disc_year_1, height=600, width=800, use_container_width=False, sharing="streamlit")
 st.plotly_chart(density_map_1, height=600, width=800, use_container_width=False, sharing="streamlit")
 
