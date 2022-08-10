@@ -58,6 +58,7 @@ Sunset = px.colors.sequential.Sunset
 Tropic = px.colors.diverging.Tropic
 Temps = px.colors.diverging.Temps
 Tealrose = px.colors.diverging.Tealrose
+Blackbody = px.colors.sequential.Blackbody
 
 
 chart_labels = {'pl_name':'PL. NAME',
@@ -150,8 +151,9 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                                    y=exo_drop_na['dec'],
                                    z=exo_drop_na['sy_distance_pc'],
                                    color=exo_drop_na['st_temp_eff_k'],
-                                   color_discrete_sequence=Temps,
-                             color_continuous_scale=Temps,
+                                   color_discrete_sequence=Blackbody,
+                             color_continuous_scale=Blackbody,
+                             size=exo_drop_na['st_mass'],
                                    hover_name=exo_drop_na['pl_name'],
                                    hover_data=exo_drop_na[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                                    title='EXOPLANET RIGHT ASCENSION / DECLINATION / DISTANCE',
