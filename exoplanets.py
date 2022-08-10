@@ -97,6 +97,15 @@ disc_year_list = list(exoplanets['disc_year'])
 
 # print(exoplanets.disc_method.unique())
 
+exo_drop_na = exoplanets.dropna()
+exo_with_temp = exoplanets[['st_temp_eff_k']].dropna()
+exo_with_dist = exoplanets[['sy_distance_pc']].dropna()
+
+
+# print(len(exo_drop_na))
+# print(len(exo_with_temp))
+# print(len(exo_with_dist))
+
 # mean_year = 2022
 # exoplanets['disc_year'].fillna(mean_year, inplace=True)
 # print(exoplanets['disc_year'].unique())
@@ -106,7 +115,8 @@ disc_year_list = list(exoplanets['disc_year'])
 # #%%
 # print(disc_method_time.disc_year)
 
-# #%%
+
+#%%
 
 #####################
 ### STREAMLIT APP ###
@@ -135,15 +145,15 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
-scatter_3d_1 = px.scatter_3d(exoplanets,
-                             x=exoplanets['ra'],
-                                   y=exoplanets['dec'],
-                                   z=exoplanets['sy_distance_pc'],
-                                   color=exoplanets['st_temp_eff_k'],
+scatter_3d_1 = px.scatter_3d(exo_drop_na,
+                             x=exo_drop_na['ra'],
+                                   y=exo_drop_na['dec'],
+                                   z=exo_drop_na['sy_distance_pc'],
+                                   color=exo_drop_na['st_temp_eff_k'],
                                    color_discrete_sequence=Temps,
                              color_continuous_scale=Temps,
-                                   hover_name=exoplanets['pl_name'],
-                                   hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
+                                   hover_name=exo_drop_na['pl_name'],
+                                   hover_data=exo_drop_na[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                                    title='EXOPLANET RIGHT ASCENSION / DECLINATION / DISTANCE',
                                    labels=chart_labels,
                                    height=600,
