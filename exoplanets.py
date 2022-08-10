@@ -158,19 +158,16 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              color_continuous_scale=Ice,
                              size=exo_drop_na['pl_rade'],
                              size_max=50,
-                             # range_x=[0,360],
-                             # range_y=[-50,50],
-                             range_z=[0,3000],
                              # symbol=exo_drop_na['disc_year'],
                              hover_name=exo_drop_na['pl_name'],
                              hover_data=exo_drop_na[['host_name', 'disc_facility', 'disc_telescope']],
                              title='EXOPLANET RIGHT ASCENSION / DECLINATION / DISTANCE',
                              labels=chart_labels,
+                             # range_x=[0,360],
+                             # range_y=[-50,50],
+                             range_z=[0,3000],
                              # range_color=Sunsetdark,
                              opacity=.8,
-                             height=600,
-                             width=800,
-
                              )
 
 disc_year_1 = px.bar(exoplanets,
@@ -288,7 +285,7 @@ star_scatter_1 = px.scatter(exoplanets,
 #
 #
 # st.plotly_chart(subplots, height=600, width=800, use_container_width=False, sharing="streamlit")
-st.plotly_chart(scatter_3d_1, height=600, width=800, use_container_width=False, sharing="streamlit")
+st.plotly_chart(scatter_3d_1, use_container_width=True, sharing="streamlit") #height=600, width=800,
 st.plotly_chart(disc_year_1, height=600, width=800, use_container_width=False, sharing="streamlit")
 st.plotly_chart(density_map_1, height=600, width=800, use_container_width=False, sharing="streamlit")
 
