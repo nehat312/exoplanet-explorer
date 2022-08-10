@@ -135,6 +135,20 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
+scatter_3d_1 = px.scatter_3d(exoplanets,
+                             x=exoplanets['ra'],
+                                   y=exoplanets['dec'],
+                                   z=exoplanets['sy_distance_pc'],
+                                   color=exoplanets['st_temp_eff_k'],
+                                   color_discrete_sequence=Temps,
+                             color_continuous_scale=Temps,
+                                   hover_name=exoplanets['pl_name'],
+                                   hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
+                                   title='EXOPLANET RIGHT ASCENSION / DECLINATION / DISTANCE',
+                                   labels=chart_labels,
+                                   height=600,
+                                   width=800,)
+
 disc_year_1 = px.bar(exoplanets,
                      # x=exoplanets['disc_year'],
                      y=exoplanets['disc_method'],
@@ -143,7 +157,6 @@ disc_year_1 = px.bar(exoplanets,
                      color_continuous_scale=Temps,
                      hover_name=exoplanets['pl_name'],
                      hover_data=exoplanets[['host_name', 'disc_telescope', 'disc_facility']],
-                     category_orders={'total descending'},
                      # barmode='group',
                      # animation_frame=exoplanets['disc_year'],
                      title='EXOPLANET DISCOVERY METHOD',
@@ -258,6 +271,7 @@ star_scatter_1 = px.scatter(exoplanets,
 
 ## DISCOVERIES OVER TIME ##
 
+st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
 
