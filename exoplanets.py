@@ -164,7 +164,7 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              title='EXOPLANET RIGHT ASCENSION / DECLINATION / DISTANCE',
                              labels=chart_labels,
                              range_color=Sunsetdark,
-                             opacity=.8,
+                             # opacity=.8,
                              height=400,
                              width=600,
                              )
