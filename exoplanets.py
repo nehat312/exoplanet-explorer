@@ -136,7 +136,7 @@ st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 disc_year_1 = px.bar(exoplanets,
-                     x=exoplanets['pl_name'],
+                     x=exoplanets['disc_year'],
                      y=exoplanets['disc_method'],
                      color=exoplanets['disc_method'],
                      color_discrete_sequence=Temps,
