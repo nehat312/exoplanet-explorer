@@ -125,7 +125,7 @@ exo_with_dist = exoplanets[['sy_distance_pc']].dropna()
 #####################
 
 ## CONFIGURATION ##
-st.set_page_config(page_title="EXOPLANET-EXPLORER") #, page_icon=":smirk:"
+st.set_page_config(page_title='EXOPLANET EXPLORER', layout='wide', initial_sidebar_state='auto') #, page_icon=":smirk:"
 
 hide_menu_style = """
         <style>
@@ -146,6 +146,8 @@ st.container()
 
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
+
+
 
 scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              x=exo_drop_na['dec'],
@@ -168,6 +170,7 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              opacity=.8,
                              height=600,
                              width=800,
+
                              )
 
 disc_year_1 = px.bar(exoplanets,
@@ -199,8 +202,6 @@ disc_info_1 = px.histogram(exoplanets,
                            hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                            title='EXOPLANET DISCOVERY METHOD / FACILITY',
                            labels=chart_labels,
-                           height=800,
-                           width=800,
                            )
 
 density_map_1 = px.density_contour(exoplanets,
@@ -213,8 +214,6 @@ density_map_1 = px.density_contour(exoplanets,
                                    hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                                    title='EXOPLANET RIGHT ASCENSION / DECLINATION',
                                    labels=chart_labels,
-                                   height=600,
-                                   width=800,
                                    )
 
 
@@ -223,8 +222,6 @@ density_map_1 = px.density_contour(exoplanets,
 #                         lon=[['glon']],
 #                         title='EXOPLANET GLAT / GLON',
 #                         labels=chart_labels,
-#                         height=800,
-#                         width=800,
 #                         )
 
 # exo_select_1 = px.(exoplanet_selection,
@@ -236,8 +233,6 @@ density_map_1 = px.density_contour(exoplanets,
 #                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
 #                                      title='EXOPLANET ATTRIBUTES',
 #                                      labels=chart_labels,
-#                                      height=800,
-#                                      width=800,
 #                                      )
 
 exo_matrix_1 = px.scatter_matrix(exoplanets,
@@ -249,8 +244,6 @@ exo_matrix_1 = px.scatter_matrix(exoplanets,
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      title='EXOPLANET ATTRIBUTES',
                                      labels=chart_labels,
-                                     height=800,
-                                     width=800,
                                      )
 
 star_matrix_1 = px.scatter_matrix(exoplanets,
@@ -262,8 +255,6 @@ star_matrix_1 = px.scatter_matrix(exoplanets,
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      title='STAR ATTRIBUTES',
                                      labels=chart_labels,
-                                     height=750,
-                                     width=800,
                                      )
 
 exo_scatter_1 = px.scatter(exoplanets,
@@ -290,15 +281,20 @@ star_scatter_1 = px.scatter(exoplanets,
                          labels=chart_labels,
                          )
 
-## DISCOVERIES OVER TIME ##
+## SUBPLOTS ##
+subplots = make_subplots(rows=1, cols=2)
+subplots.add_trace(scatter_3d_1, row=1, col=1)
+subplots.add_trace(scatter_3d_1, row=1, col=2)
 
-st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
 
-st.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(subplots, height=600, width=800, use_container_width=False, sharing="streamlit")
+st.plotly_chart(scatter_3d_1, height=600, width=800, use_container_width=False, sharing="streamlit")
+st.plotly_chart(disc_year_1, height=600, width=800, use_container_width=False, sharing="streamlit")
+st.plotly_chart(density_map_1, height=600, width=800, use_container_width=False, sharing="streamlit")
+
+st.plotly_chart(exo_matrix_1, height=600, width=800, use_container_width=False, sharing="streamlit")
+st.plotly_chart(star_matrix_1, height=600, width=800, use_container_width=False, sharing="streamlit")
+st.plotly_chart(disc_info_1, height=600, width=800, use_container_width=False, sharing="streamlit")
 
 # st.plotly_chart(exo_scatter_1, use_container_width=False, sharing="streamlit")
 # st.plotly_chart(star_scatter_1, use_container_width=False, sharing="streamlit")
