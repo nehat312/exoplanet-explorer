@@ -152,16 +152,14 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 ## HEADER ##
 st.container()
 
-st.title('EXOPLANET EXPLORER')
-
 img_col_1, img_col_2, img_col_3 = st.columns(3)
 
 img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
 img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
 img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
 
-st.subheader('*Sourced from NASA-CalTECH mission archives*')
-
+st.title('EXOPLANET EXPLORER')
+st.write('*Sourced from NASA-CalTECH mission archives*')
 
 
 scatter_3d_1 = px.scatter_3d(exo_drop_na,
