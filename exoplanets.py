@@ -40,6 +40,13 @@ exoplanet_path = abs_path + '/data/NASA_Exoplanets-8-7-22.csv'
 exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, header=0, index_col='pl_name'#,
 exoplanets.sort_values(by='disc_year', inplace=True)
 
+## IMAGE IMPORT ##
+jwst_tele_img_1 = Image.open('images/JWST-1.png')
+jwst_carina_img_1 = Image.open('images/JW-Carina-1.jpg')
+jwst_phantom_img_1 = Image.open('images/JW-Phantom.jpg')
+jwst_infra_img_1 = Image.open('images/JW-Infrared.jpg')
+
+
 # exoplanets.dropna(inplace=True)
 
 # print(exoplanets.info())
@@ -147,6 +154,14 @@ st.container()
 
 st.title('EXOPLANET EXPLORER')
 st.subheader('*Sourced from NASA-CalTECH mission archives*')
+
+img_col_1, img_col_2, img_col_3 = st.columns(3)
+
+img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
+img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
+img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
+
+
 
 
 
@@ -392,17 +407,7 @@ exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
 # if __name__ == "__main__":
 #     main()
 
-## IMAGE EMBEDDING ##
-jwst_tele_img_1 = Image.open('images/JWST-1.png')
-jwst_carina_img_1 = Image.open('images/JW-Carina-1.jpg')
-jwst_phantom_img_1 = Image.open('images/JW-Phantom.jpg')
-jwst_infra_img_1 = Image.open('images/JW-Infrared.jpg')
-
-img_col_1, img_col_2, img_col_3 = st.columns(3)
-
-img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
-img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
-img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
+## JWST TELESCOPE ##
 
 st.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE', use_column_width=True)
 
