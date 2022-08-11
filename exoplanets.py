@@ -412,7 +412,7 @@ img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)')
 ## EXTERNAL LINKS ##
 
 github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
-nasa_exo_link = '[NASA EXOPLANETS]https://exoplanets.nasa.gov/'
+nasa_exo_link = '[NASA EXOPLANETS](https://exoplanets.nasa.gov/)'
 nasa_caltech_link = '[NASA ARCHIVE](https://exoplanetarchive.ipac.caltech.edu/)'
 
 
