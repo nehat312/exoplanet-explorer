@@ -394,10 +394,10 @@ exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
 
 ## TELESCOPE IMAGES ##
 tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
-tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', width=350)
-tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', width=350)
-tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=350)
-tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=350)
+tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', width=400)
+tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', width=400)
+tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=400)
+tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=400)
 
 
 
