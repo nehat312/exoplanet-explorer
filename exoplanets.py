@@ -308,7 +308,7 @@ st.write('*Sourced from NASA-CalTECH mission archives*')
 ## DISCOVERY INFORMATION ##
 # left_col_2, right_col_2 = st.columns(2)
 # left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(disc_info_1.update_yaxes(categoryorder='total descending'), use_container_width=True, sharing="streamlit")
+st.plotly_chart(disc_info_1.update_yaxes(categoryorder='total ascending'), use_container_width=True, sharing="streamlit")
 # disc_info_1.update_layout(yaxis={'categoryorder':'total descending'})
 
 ## TELESCOPE IMAGES ##
