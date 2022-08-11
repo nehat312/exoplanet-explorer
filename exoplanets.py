@@ -151,8 +151,8 @@ st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 
 scatter_3d_1 = px.scatter_3d(exo_drop_na,
-                             x=exo_drop_na['dec'],
-                             y=exo_drop_na['ra'],
+                             x=exo_drop_na['ra'],
+                             y=exo_drop_na['dec'],
                              z=exo_drop_na['sy_distance_pc'],
                              color=exo_drop_na['st_temp_eff_k'],
                              color_discrete_sequence=Ice_r,
@@ -389,8 +389,21 @@ exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
 #     main()
 
 ## IMAGE EMBEDDING ##
-jwst_img_1 = Image.open('JWST-1.png')
-st.image(jwst_img_1)
+jwst_tele_img_1 = Image.open('images/JWST-1.png')
+jwst_carina_img_1 = Image.open('images/Carina-Nebula-1.jpg')
+jwst_phantom_img_1 = Image.open('images/JW-Phantom.jpg')
+jwst_infra_img_1 = Image.open('images/JW-Infrared.jpg')
+
+
+
+
+st.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE')
+
+img_col_1, img_col_2, img_col_3 = st.columns(3)
+
+img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)')
+img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)')
+img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)')
 
 
 
