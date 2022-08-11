@@ -195,7 +195,7 @@ disc_year_1 = px.bar(exoplanets,
 
 
 disc_info_1 = px.histogram(exoplanets,
-                           x=exoplanets['disc_method'],
+                           y=exoplanets['disc_method'],
                            color=exoplanets['disc_facility'],
                            color_discrete_sequence=Temps,
                            hover_name=exoplanets['pl_name'],
@@ -204,17 +204,17 @@ disc_info_1 = px.histogram(exoplanets,
                            labels=chart_labels,
                            )
 
-density_map_1 = px.density_contour(exoplanets,
-                                   x=exoplanets['ra'],
-                                   y=exoplanets['dec'],
-                                   z=exoplanets['sy_distance_pc'],
-                                   color=exoplanets['disc_method'],
-                                   color_discrete_sequence=Temps,
-                                   hover_name=exoplanets['pl_name'],
-                                   hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
-                                   title='EXOPLANET RIGHT ASCENSION / DECLINATION',
-                                   labels=chart_labels,
-                                   )
+# density_map_1 = px.density_contour(exoplanets,
+#                                    x=exoplanets['ra'],
+#                                    y=exoplanets['dec'],
+#                                    z=exoplanets['sy_distance_pc'],
+#                                    color=exoplanets['disc_method'],
+#                                    color_discrete_sequence=Temps,
+#                                    hover_name=exoplanets['pl_name'],
+#                                    hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
+#                                    title='EXOPLANET RIGHT ASCENSION / DECLINATION',
+#                                    labels=chart_labels,
+#                                    )
 
 
 # exo_map_1 = px.scatter_geo(exoplanets,
@@ -244,7 +244,7 @@ exo_matrix_1 = px.scatter_matrix(exoplanets,
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      title='EXOPLANET ATTRIBUTES',
                                      labels=chart_labels,
-                                 height=800,
+                                 height=850,
                                  # width=800,
                                  )
 
@@ -289,17 +289,16 @@ star_scatter_1 = px.scatter(exoplanets,
 # subplots = make_subplots(rows=1, cols=2)
 # subplots.add_trace(scatter_3d_1, row=1, col=1)
 # subplots.add_trace(scatter_3d_1, row=1, col=2)
-#
 
-st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit") #
+st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 
 left_col_1, right_col_1 = st.columns(2)
 left_col_1.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
 
-left_col_2, right_col_2 = st.columns(2)
-left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
-right_col_2.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
+# left_col_2, right_col_2 = st.columns(2)
+# left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
 
 # st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
 
