@@ -321,18 +321,16 @@ tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=375)
 ## 3D SCATTER ##
 st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 
-## GALAXY IMAGES ##
-img_col_1, img_col_2, img_col_3 = st.columns(3)
-img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
-img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
-img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
-
 ## SCATTER MATRIX ##
 left_col_1, right_col_1 = st.columns(2)
 left_col_1.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
 
-
+## GALAXY IMAGES ##
+img_col_1, img_col_2, img_col_3 = st.columns(3)
+img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
+img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
+img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
 
 # st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
 
