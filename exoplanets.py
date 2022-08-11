@@ -158,6 +158,18 @@ st.container()
 st.title('EXOPLANET EXPLORER')
 st.write('*Sourced from NASA-CalTECH mission archives*')
 
+## EXTERNAL LINKS ##
+
+github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
+nasa_exo_link = '[NASA EXOPLANETS](https://exoplanets.nasa.gov/)'
+nasa_caltech_link = '[NASA ARCHIVE](https://exoplanetarchive.ipac.caltech.edu/)'
+
+
+link_col_1, link_col_2, link_col_3 = st.columns(3)
+ext_link_1 = link_col_1.markdown(github_link, unsafe_allow_html=True)
+ext_link_2 = link_col_2.markdown(nasa_exo_link, unsafe_allow_html=True)
+ext_link_3 = link_col_3.markdown(nasa_caltech_link, unsafe_allow_html=True)
+
 
 scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              x=exo_drop_na['ra'],
@@ -390,17 +402,6 @@ tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=350)
 tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=350)
 
 
-## EXTERNAL LINKS ##
-
-github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
-nasa_exo_link = '[NASA EXOPLANETS](https://exoplanets.nasa.gov/)'
-nasa_caltech_link = '[NASA ARCHIVE](https://exoplanetarchive.ipac.caltech.edu/)'
-
-
-link_col_1, link_col_2, link_col_3 = st.columns(3)
-ext_link_1 = link_col_1.markdown(github_link, unsafe_allow_html=True)
-ext_link_2 = link_col_2.markdown(nasa_exo_link, unsafe_allow_html=True)
-ext_link_3 = link_col_3.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
 # left_button = left_column.button('GITHUB REPOSITORY')
 # right_button = right_column.button('NASA ARCHIVES')
