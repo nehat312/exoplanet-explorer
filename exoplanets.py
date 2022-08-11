@@ -334,12 +334,6 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
     # subplots.add_trace(scatter_3d_1, row=1, col=1)
     # subplots.add_trace(scatter_3d_1, row=1, col=2)
 
-exo_star_prompt = st.subheader('SELECT STAR:')
-exo_star_selection = st.selectbox('EXO-STARS:', (exo_star_list))
-
-exoplanet_prompt = st.subheader('SELECT EXOPLANET:')
-exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
-
 
 
 
@@ -411,10 +405,20 @@ tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=375)
     # st.markdown(github_link, unsafe_allow_html=True)
     # st.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
-# st.success('')
-# st.warning('')
+## SELECTION FORM ##
+
+exo_star_prompt = st.subheader('SELECT STAR:')
+exo_star_selection = st.selectbox('EXO-STARS:', (exo_star_list))
+
+exoplanet_prompt = st.subheader('SELECT EXOPLANET:')
+exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
+
+
+## CONCLUSION ##
 
 st.stop()
+# st.success('')
+# st.warning('')
 
 
 ### INTERPRETATION ###
@@ -522,11 +526,3 @@ st.stop()
             #                   "sepal_width": "Sepal Width", "sepal_length": "Sepal Length",
             #                   "petal_width": "Petal Width", "petal_length": "Petal Length", },
             #                     color_continuous_scale=px.colors.diverging.Tealrose, color_continuous_midpoint=2)
-
-
-#st.spinner()
-#with st.spinner(text='CONNECTING'):
-#    time.sleep(5)
-#    st.success('LIVE')
-
-#streamlit. slider ( label , min_value=None , max_value=None , value=None , step=None , format=None , key=None )
