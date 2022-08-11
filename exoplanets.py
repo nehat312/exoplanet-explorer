@@ -398,16 +398,13 @@ jwst_carina_img_1 = Image.open('images/JW-Carina-1.jpg')
 jwst_phantom_img_1 = Image.open('images/JW-Phantom.jpg')
 jwst_infra_img_1 = Image.open('images/JW-Infrared.jpg')
 
-
-
-st.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE')
-
 img_col_1, img_col_2, img_col_3 = st.columns(3)
 
-img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)')
-img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)')
-img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)')
+img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
+img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
+img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
 
+st.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE', use_column_width=True)
 
 ## EXTERNAL LINKS ##
 
