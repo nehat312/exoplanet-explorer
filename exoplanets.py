@@ -153,7 +153,6 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 st.container()
 
 st.title('EXOPLANET EXPLORER')
-st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 img_col_1, img_col_2, img_col_3 = st.columns(3)
 
@@ -161,7 +160,7 @@ img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
 img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
 img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
 
-
+st.subheader('*Sourced from NASA-CalTECH mission archives*')
 
 
 
@@ -188,32 +187,30 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              width=1600,
                              )
 
-disc_year_1 = px.bar(exoplanets,
-                     # x=exoplanets['disc_year'],
-                     y=exoplanets['disc_method'],
-                     color=exoplanets['disc_method'],
-                     color_discrete_sequence=Temps,
-                     color_continuous_scale=Temps,
-                     hover_name=exoplanets['pl_name'],
-                     hover_data=exoplanets[['host_name', 'disc_telescope', 'disc_facility']],
-                     # barmode='group',
-                     # animation_frame=exoplanets['disc_year'],
-                     title='EXOPLANET DISCOVERY METHOD',
-                     labels=chart_labels,
-                     range_x=[0, 4000],
-                     # range_y=disc_method_list,
-                     # height=800,
-                     width=800,
-                     orientation='h',
-                     )
-
-
+# disc_year_1 = px.bar(exoplanets,
+#                      # x=exoplanets['disc_year'],
+#                      y=exoplanets['disc_method'],
+#                      color=exoplanets['disc_method'],
+#                      color_discrete_sequence=Temps,
+#                      color_continuous_scale=Temps,
+#                      hover_name=exoplanets['pl_name'],
+#                      hover_data=exoplanets[['host_name', 'disc_telescope', 'disc_facility']],
+#                      # barmode='group',
+#                      # animation_frame=exoplanets['disc_year'],
+#                      title='EXOPLANET DISCOVERY METHOD',
+#                      labels=chart_labels,
+#                      range_x=[0, 4000],
+#                      # range_y=disc_method_list,
+#                      # height=800,
+#                      width=800,
+#                      orientation='h',
+#                      )
 
 
 disc_info_1 = px.histogram(exoplanets,
                            y=exoplanets['disc_method'],
                            color=exoplanets['disc_facility'],
-                           color_discrete_sequence=Temps,
+                           color_discrete_sequence=Ice_r,
                            hover_name=exoplanets['pl_name'],
                            hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                            title='EXOPLANET DISCOVERY METHOD / FACILITY',
@@ -275,7 +272,7 @@ star_matrix_1 = px.scatter_matrix(exoplanets,
                                      hover_data=exoplanets[['host_name', 'sy_star_count', 'sy_planet_count']],
                                      title='STAR ATTRIBUTES',
                                      labels=chart_labels,
-                                  height=800,
+                                  height=850,
                                   # width=800,
                                   )
 
@@ -283,8 +280,8 @@ exo_scatter_1 = px.scatter(exoplanets,
                          x=exoplanets['pl_rade'],
                          y=exoplanets['pl_bmasse'],
                          color=exoplanets['st_temp_eff_k'],
-                         color_continuous_scale=Temps,
-                         color_discrete_sequence=Temps,
+                         color_continuous_scale=Ice_r,
+                         color_discrete_sequence=Ice_r,
                          hover_name=exoplanets['pl_name'],
                          hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                          title='EXOPLANET ATTRIBUTES',
@@ -295,8 +292,8 @@ star_scatter_1 = px.scatter(exoplanets,
                          x=exoplanets['st_radius'],
                          y=exoplanets['st_mass'],
                          color=exoplanets['st_temp_eff_k'],
-                         color_continuous_scale=Temps,
-                         color_discrete_sequence=Temps,
+                         color_continuous_scale=Ice_r,
+                         color_discrete_sequence=Ice_r,
                          hover_name=exoplanets['host_name'],
                          hover_data=exoplanets[['disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                          title='HOST STAR ATTRIBUTES',
