@@ -305,18 +305,18 @@ ext_link_3 = link_col_3.markdown(nasa_caltech_link, unsafe_allow_html=True)
 st.title('EXOPLANET EXPLORER')
 st.write('*Sourced from NASA-CalTECH mission archives*')
 
-## DISCOVERY INFORMATION ##
-# left_col_2, right_col_2 = st.columns(2)
-# left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(disc_info_1.update_yaxes(categoryorder='total ascending'), use_container_width=True, sharing="streamlit")
-# disc_info_1.update_layout(yaxis={'categoryorder':'total descending'})
-
 ## TELESCOPE IMAGES ##
 tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
 tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', width=375)
 tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', width=375)
 tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=375)
 tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=375)
+
+## DISCOVERY INFORMATION ##
+# left_col_2, right_col_2 = st.columns(2)
+# left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(disc_info_1.update_yaxes(categoryorder='total ascending'), use_container_width=True, sharing="streamlit")
+# disc_info_1.update_layout(yaxis={'categoryorder':'total descending'})
 
 ## 3D SCATTER ##
 st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
@@ -325,12 +325,6 @@ st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 left_col_1, right_col_1 = st.columns(2)
 left_col_1.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
-
-## GALAXY IMAGES ##
-img_col_1, img_col_2, img_col_3 = st.columns(3)
-img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
-img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
-img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
 
 # st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
 
@@ -412,6 +406,13 @@ exo_star_selection = st.selectbox('EXO-STARS:', (exo_star_list))
 
 exoplanet_prompt = st.subheader('SELECT EXOPLANET:')
 exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
+
+
+## GALAXY IMAGES ##
+img_col_1, img_col_2, img_col_3 = st.columns(3)
+img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
+img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
+img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
 
 
 ## CONCLUSION ##
