@@ -41,7 +41,10 @@ exoplanets = pd.read_csv(exoplanet_path, header=0, index_col='loc_rowid') #, hea
 exoplanets.sort_values(by='disc_year', inplace=True)
 
 ## IMAGE IMPORT ##
-jwst_tele_img_1 = Image.open('images/JWST-1.png')
+jwst_tele_img_1 = Image.open('images/JWST-2.jpg')
+tess_tele_img_1 = Image.open('images/TESS-1.jpg')
+kepler_tele_img_1 = Image.open('images/Kepler-1.jpg')
+hubble_tele_img_1 = Image.open('images/Hubble-1.jpg')
 jwst_carina_img_1 = Image.open('images/JW-Carina-1.jpg')
 jwst_phantom_img_1 = Image.open('images/JW-Phantom.jpg')
 jwst_infra_img_1 = Image.open('images/JW-Infrared.jpg')
@@ -379,9 +382,13 @@ exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
         # st.dataframe(buyer_rec_df.style.applymap(df_style_map, subset=['COUNTRY']))
 
 
-## JWST TELESCOPE ##
+## TELESCOPE IMAGES ##
+tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
+tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', use_column_width=False)
+tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', use_column_width=False)
+tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', use_column_width=False)
+tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', use_column_width=False)
 
-st.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE', use_column_width=False)
 
 ## EXTERNAL LINKS ##
 
