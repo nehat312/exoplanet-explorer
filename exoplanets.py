@@ -310,17 +310,27 @@ st.write('*Sourced from NASA-CalTECH mission archives*')
 # left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(disc_info_1, use_container_width=True, sharing="streamlit")
 
+## TELESCOPE IMAGES ##
+tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
+tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', width=375)
+tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', width=375)
+tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=375)
+tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=375)
+
+## 3D SCATTER ##
 st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 
+## GALAXY IMAGES ##
 img_col_1, img_col_2, img_col_3 = st.columns(3)
-
 img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
 img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
 img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
 
+## SCATTER MATRIX ##
 left_col_1, right_col_1 = st.columns(2)
 left_col_1.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
+
 
 
 # st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
@@ -333,7 +343,6 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
 # subplots = make_subplots(rows=1, cols=2)
     # subplots.add_trace(scatter_3d_1, row=1, col=1)
     # subplots.add_trace(scatter_3d_1, row=1, col=2)
-
 
 
 
@@ -384,14 +393,6 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
         #         return f'background-color: {color}'
         #
         # st.dataframe(buyer_rec_df.style.applymap(df_style_map, subset=['COUNTRY']))
-
-
-## TELESCOPE IMAGES ##
-tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
-tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', width=375)
-tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', width=375)
-tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=375)
-tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=375)
 
 
 
