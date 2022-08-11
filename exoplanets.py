@@ -129,48 +129,7 @@ exo_with_dist = exoplanets[['sy_distance_pc']].dropna()
 # #%%
 # print(disc_method_time.disc_year)
 
-
-
-#####################
-### STREAMLIT APP ###
-#####################
-
-## CONFIGURATION ##
-st.set_page_config(page_title='EXOPLANET EXPLORER', layout='wide', initial_sidebar_state='auto') #, page_icon=":smirk:"
-
-hide_menu_style = """
-        <style>
-        #MainMenu {visibility: hidden; }
-        footer {visibility: hidden;}
-        </style>
-        """
-
-st.markdown(hide_menu_style, unsafe_allow_html=True)
-
-
-## SIDEBAR ##
-# st.sidebar.xyz
-
-
-## HEADER ##
-st.container()
-
-st.title('EXOPLANET EXPLORER')
-st.write('*Sourced from NASA-CalTECH mission archives*')
-
-## EXTERNAL LINKS ##
-
-github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
-nasa_exo_link = '[NASA EXOPLANETS](https://exoplanets.nasa.gov/)'
-nasa_caltech_link = '[NASA ARCHIVE](https://exoplanetarchive.ipac.caltech.edu/)'
-
-
-link_col_1, link_col_2, link_col_3 = st.columns(3)
-ext_link_1 = link_col_1.markdown(github_link, unsafe_allow_html=True)
-ext_link_2 = link_col_2.markdown(nasa_exo_link, unsafe_allow_html=True)
-ext_link_3 = link_col_3.markdown(nasa_caltech_link, unsafe_allow_html=True)
-
-
+## VISUALIZATION ##
 scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              x=exo_drop_na['ra'],
                              y=exo_drop_na['dec'],
@@ -306,6 +265,45 @@ star_scatter_1 = px.scatter(exoplanets,
                          title='HOST STAR ATTRIBUTES',
                          labels=chart_labels,
                          )
+
+
+#####################
+### STREAMLIT APP ###
+#####################
+
+## CONFIGURATION ##
+st.set_page_config(page_title='EXOPLANET EXPLORER', layout='wide', initial_sidebar_state='auto') #, page_icon=":smirk:"
+
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden; }
+        footer {visibility: hidden;}
+        </style>
+        """
+
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+
+## SIDEBAR ##
+# st.sidebar.xyz
+
+
+## HEADER ##
+st.container()
+
+## EXTERNAL LINKS ##
+
+github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
+nasa_exo_link = '[NASA EXOPLANETS](https://exoplanets.nasa.gov/)'
+nasa_caltech_link = '[NASA ARCHIVE](https://exoplanetarchive.ipac.caltech.edu/)'
+
+link_col_1, link_col_2, link_col_3 = st.columns(3)
+ext_link_1 = link_col_1.markdown(github_link, unsafe_allow_html=True)
+ext_link_2 = link_col_2.markdown(nasa_exo_link, unsafe_allow_html=True)
+ext_link_3 = link_col_3.markdown(nasa_caltech_link, unsafe_allow_html=True)
+
+st.title('EXOPLANET EXPLORER')
+st.write('*Sourced from NASA-CalTECH mission archives*')
 
 
 # left_col_2, right_col_2 = st.columns(2)
