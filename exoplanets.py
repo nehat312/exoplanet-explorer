@@ -292,10 +292,10 @@ star_scatter_1 = px.scatter(exoplanets,
                          labels=chart_labels,
                          )
 
-## SUBPLOTS ##
-# subplots = make_subplots(rows=1, cols=2)
-# subplots.add_trace(scatter_3d_1, row=1, col=1)
-# subplots.add_trace(scatter_3d_1, row=1, col=2)
+
+# left_col_2, right_col_2 = st.columns(2)
+# left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
+st.plotly_chart(disc_info_1, use_container_width=True, sharing="streamlit")
 
 st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 
@@ -305,22 +305,21 @@ img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
 img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
 img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
 
-# left_col_2, right_col_2 = st.columns(2)
-# left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(disc_info_1, use_container_width=True, sharing="streamlit")
-
 left_col_1, right_col_1 = st.columns(2)
 left_col_1.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
 
 
-
 # st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
-
 
 # st.plotly_chart(exo_scatter_1, use_container_width=False, sharing="streamlit")
 # st.plotly_chart(star_scatter_1, use_container_width=False, sharing="streamlit")
 
+
+## SUBPLOTS ##
+# subplots = make_subplots(rows=1, cols=2)
+    # subplots.add_trace(scatter_3d_1, row=1, col=1)
+    # subplots.add_trace(scatter_3d_1, row=1, col=2)
 
 exo_star_prompt = st.subheader('SELECT STAR:')
 exo_star_selection = st.selectbox('EXO-STARS:', (exo_star_list))
@@ -380,33 +379,9 @@ exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
         # st.dataframe(buyer_rec_df.style.applymap(df_style_map, subset=['COUNTRY']))
 
 
-
-
-## VALUATION METRICS ##
-        # if sector == 'MULTIFAMILY':
-        #     per_unit_valuation = round(buyer_rec_df['MF_AVG_PPU'].mean())
-        #     prop_valuation = per_unit_valuation * prop_size
-        #     st.write(f'ESTIMATED PROPERTY VALUATION: ${(prop_valuation / 1_000_000):.2f}MM or {per_unit_valuation:.0f}/UNIT')
-        #     # st.metric('ESTIMATED PROPERTY VALUATION: $', (prop_valuation / 1_000_000))
-        #     # st.metric('ESTIMATED PROPERTY VALUATION: $/UNIT', per_unit_valuation)
-        #     st.write("TARGETED INVESTOR POOL:")
-        #     st.dataframe(buyer_rec_df)
-
-
-#######################
-## TABLEAU EMBEDDING ##
-#######################
-
-# def main():
-#     html_temp = """<div class='tableauPlaceholder' id='viz1659419844202' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;MS&#47;MS874Y84Y&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;MS874Y84Y' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;MS&#47;MS874Y84Y&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1659419844202');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"""
-#     components.html(html_temp, height=600) #width=400,
-#
-# if __name__ == "__main__":
-#     main()
-
 ## JWST TELESCOPE ##
 
-st.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE', use_column_width=True)
+st.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE', use_column_width=False)
 
 ## EXTERNAL LINKS ##
 
