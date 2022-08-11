@@ -297,9 +297,11 @@ left_col_1, right_col_1 = st.columns(2)
 left_col_1.plotly_chart(exo_matrix_1, use_container_width=False, sharing="streamlit")
 right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="streamlit")
 
-st.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
-st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
+left_col_2, right_col_2 = st.columns(2)
+left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
+right_col_2.plotly_chart(disc_info_1, use_container_width=False, sharing="streamlit")
+
+# st.plotly_chart(density_map_1, use_container_width=False, sharing="streamlit")
 
 
 # st.plotly_chart(exo_scatter_1, use_container_width=False, sharing="streamlit")
