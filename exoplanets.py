@@ -390,10 +390,9 @@ exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
 
 ## IMAGE EMBEDDING ##
 jwst_tele_img_1 = Image.open('images/JWST-1.png')
-jwst_carina_img_1 = Image.open('images/Carina-Nebula-1.jpg')
+jwst_carina_img_1 = Image.open('images/JW-Carina-1.jpg')
 jwst_phantom_img_1 = Image.open('images/JW-Phantom.jpg')
 jwst_infra_img_1 = Image.open('images/JW-Infrared.jpg')
-
 
 
 
@@ -406,15 +405,17 @@ img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)')
 img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)')
 
 
-
 ## EXTERNAL LINKS ##
 
 github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
-nasa_caltech_link = '[NASA ARCHIVES](https://exoplanetarchive.ipac.caltech.edu/)'
+nasa_exo_link = '[NASA EXOPLANETS]https://exoplanets.nasa.gov/'
+nasa_caltech_link = '[NASA ARCHIVE](https://exoplanetarchive.ipac.caltech.edu/)'
 
-left_column, right_column = st.columns(2)
-left_button = left_column.markdown(github_link, unsafe_allow_html=True)
-right_button = right_column.markdown(nasa_caltech_link, unsafe_allow_html=True)
+
+link_col_1, link_col_2, link_col_3 = st.columns(3)
+ext_link_1 = link_col_1.markdown(github_link, unsafe_allow_html=True)
+ext_link_2 = link_col_2.markdown(nasa_exo_link, unsafe_allow_html=True)
+ext_link_3 = link_col_3.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
 # left_button = left_column.button('GITHUB REPOSITORY')
 # right_button = right_column.button('NASA ARCHIVES')
