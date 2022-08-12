@@ -340,16 +340,15 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
     # subplots.add_trace(scatter_3d_1, row=1, col=2)
 
 
-
 # with st.form('PARAMS FORM'):
 #     if sector == "MULTIFAMILY":
 #         prop_size = st.number_input('*TOTAL MF UNITS [25-1,000 UNITS]', min_value=25, max_value=500, step=25, value=100) #list(range(25,750,25)))
 #         min_prop_price = st.number_input('*MINIMUM VALUATION [$0MM-$100MM]', min_value=0, max_value=100, value=10, step=5)
 #         prop_qual = st.selectbox('*PROPERTY QUALITY [1-5]:', list(range(1, 6, 1)))
-#
-#
+
+
 #     params_submit = st.form_submit_button('FORM SUBMIT')
-#
+
 #     @st.cache(persist=True, allow_output_mutation=True)
 #     def filter_buyers(sector, prop_size, min_prop_price, prop_qual):
 #       if sector == 'MULTIFAMILY':
@@ -402,21 +401,30 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
     # st.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
 ## SELECTION FORM ##
+
+@st.cache(persist=True, allow_output_mutation=True)
+def display_planet_stats(exoplanet):
+    exo_df = exoplanets.loc[exoplanets['pl_name'] == 'K2-398 b']
+    st.dataframe(exo_df)
+
 with st.form('EXOPLANET SELECTION'):
     exoplanet_prompt = st.subheader('SELECT AN EXOPLANET:')
     exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
-    star_submit = st.form_submit_button('INTERPLANETARY')
+    exo_submit = st.form_submit_button('INTERPLANETARY')
+    if exo_submit:
+        display_planet_stats(exoplanet_selection)
+
+
+
 
 with st.form('EXO-STAR SELECTION'):
     exo_star_prompt = st.subheader('SELECT AN EXO-STAR:')
     exo_star_selection = st.selectbox('EXO-STARS:', (exo_star_list))
     star_submit = st.form_submit_button('INTERSTELLAR')
+    # if star_submit:
 
 
-@st.cache(persist=True, allow_output_mutation=True)
-def display_planet_stats(exoplanet_selection):
-    exo_df = exoplanets.loc[exoplanets['pl_name'] == 'K2-398 b']
-    st.dataframe(exo_df)
+
 
 
 ## GALAXY IMAGES ##
