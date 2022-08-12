@@ -152,13 +152,16 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              height=800,
                              width=1600,
                              )
+disc_df = exoplanets
+disc_df['count'] = disc_df.groupby('name').transform('count')
+disc_filter_df = disc_df.loc[exoplanets['disc_facility'] >= 2].drop(columns='count')
 
-disc_info_1 = px.histogram(exoplanets,
-                           y=exoplanets['disc_facility'],
-                           color=exoplanets['disc_method'],
+disc_info_1 = px.histogram(disc_filter_df,
+                           y=disc_filter_df['disc_facility'],
+                           color=disc_filter_df['disc_method'],
                            color_discrete_sequence=Ice_r,
-                           hover_name=exoplanets['pl_name'],
-                           hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
+                           hover_name=disc_filter_df['pl_name'],
+                           hover_data=disc_filter_df[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                            title='EXOPLANET DISCOVERY METHOD / FACILITY',
                            labels=chart_labels,
                            height=1200,
@@ -401,12 +404,16 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
     # st.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
 ## SELECTION FORM ##
+with st.form('EXOPLANET SELECTION'):
+    exoplanet_prompt = st.subheader('SELECT AN EXOPLANET:')
+    exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
+    star_submit = st.form_submit_button('INTERPLANETARY')
 
-exo_star_prompt = st.subheader('SELECT STAR:')
-exo_star_selection = st.selectbox('EXO-STARS:', (exo_star_list))
+with st.form('EXO-STAR SELECTION'):
+    exo_star_prompt = st.subheader('SELECT AN EXO-STAR:')
+    exo_star_selection = st.selectbox('EXO-STARS:', (exo_star_list))
+    star_submit = st.form_submit_button('INTERSTELLAR')
 
-exoplanet_prompt = st.subheader('SELECT EXOPLANET:')
-exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
 
 @st.cache(persist=True, allow_output_mutation=True)
 def display_planet_stats(exoplanet_selection):
