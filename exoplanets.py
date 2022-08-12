@@ -145,6 +145,7 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              color=exo_drop_na['st_temp_eff_k'],
                              color_discrete_sequence=Ice_r,
                              color_continuous_scale=Ice_r,
+                             color_continuous_midpoint=5000,
                              size=exo_drop_na['pl_rade'],
                              size_max=50,
                              # symbol=exo_drop_na['disc_year'],
@@ -325,14 +326,14 @@ tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE
 tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=250)
 tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=250)
 
+## 3D SCATTER ##
+st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
+
 ## DISCOVERY INFORMATION ##
 # left_col_2, right_col_2 = st.columns(2)
 # left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
 st.plotly_chart(disc_info_1.update_yaxes(categoryorder='total ascending'), use_container_width=True, sharing="streamlit")
 # disc_info_1.update_layout(yaxis={'categoryorder':'total descending'})
-
-## 3D SCATTER ##
-st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 
 ## SCATTER MATRIX ##
 left_col_1, right_col_1 = st.columns(2)
