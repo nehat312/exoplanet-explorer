@@ -410,7 +410,7 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
 #%%
 def display_planet_stats(exo_input):
     exo_df = exoplanets.loc[exoplanets['pl_name'] == exo_input] #'K2-398 b'
-    #exo_df.drop(columns=[''], inplace=True)
+    exo_df.drop(columns=['st_temp_eff_k1', 'st_temp_eff_k2', 'decstr', 'rastr', 'sy_vmag', 'sy_kmag', 'sy_gaiamag'], inplace=True)
     st.dataframe(exo_df)
 
 #%%
