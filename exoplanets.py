@@ -129,13 +129,7 @@ exo_with_dist = exoplanets[['sy_distance_pc']].dropna()
 # #%%
 # print(disc_method_time.disc_year)
 
-exo_hosts = exoplanets.groupby('disc_facility')['disc_method'].value_counts().sort_values(ascending=False)
-disc_faciity_filter = exoplanets[exoplanets['disc_facility'].value_counts() > 1]
-# disc_faciity_filter = exoplanets['disc_facility'].value_counts().loc[lambda x : x>1].sort_values(ascending=False)
-# print(exo_hosts)
-print(disc_faciity_filter)
 
-#%%
 
 ## VISUALIZATION ##
 scatter_3d_1 = px.scatter_3d(exo_drop_na,
