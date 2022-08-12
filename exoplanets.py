@@ -401,7 +401,7 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
     # st.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
 ## SELECTION FORM ##
-exo_drop_cols = ['pl_controv_flag', 'pl_bmass_prov',
+exo_drop_cols = ['pl_controv_flag', #'pl_bmass_prov',
                  'st_temp_eff_k1', 'st_temp_eff_k2',
                  'decstr', 'rastr',
                  'sy_vmag', 'sy_kmag', 'sy_gaiamag']
