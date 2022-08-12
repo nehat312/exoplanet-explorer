@@ -411,10 +411,10 @@ def display_planet_stats(exo_input):
 
 with st.form('EXOPLANET SELECTION'):
     exoplanet_prompt = st.subheader('SELECT AN EXOPLANET:')
-    exoplanet_selection = st.selectbox('EXOPLANETS:', (exo_planet_list))
+    exo_input = st.selectbox('EXOPLANETS:', (exo_planet_list))
     exo_submit = st.form_submit_button('INTERPLANETARY')
     if exo_submit:
-        st.dataframe(display_planet_stats(exoplanet_selection))
+        st.dataframe(display_planet_stats(exo_input))
 
 
 
