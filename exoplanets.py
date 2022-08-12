@@ -153,6 +153,18 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              width=1600,
                              )
 
+disc_info_1 = px.histogram(exoplanets,
+                           y=exoplanets['disc_facility'],
+                           color=exoplanets['disc_method'],
+                           color_discrete_sequence=Ice_r,
+                           hover_name=exoplanets['pl_name'],
+                           hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
+                           title='EXOPLANET DISCOVERY METHOD / FACILITY',
+                           labels=chart_labels,
+                           # height=800,
+                           # width=800,
+                           )
+
 # disc_year_1 = px.bar(exoplanets,
 #                      # x=exoplanets['disc_year'],
 #                      y=exoplanets['disc_method'],
@@ -173,17 +185,6 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
 #                      )
 
 
-disc_info_1 = px.histogram(exoplanets,
-                           y=exoplanets['disc_method'],
-                           color=exoplanets['disc_facility'],
-                           color_discrete_sequence=Ice_r,
-                           hover_name=exoplanets['pl_name'],
-                           hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
-                           title='EXOPLANET DISCOVERY METHOD / FACILITY',
-                           labels=chart_labels,
-                           # height=800,
-                           # width=800,
-                           )
 
 # density_map_1 = px.density_contour(exoplanets,
 #                                    x=exoplanets['ra'],
