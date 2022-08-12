@@ -329,6 +329,36 @@ tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=250)
 ## 3D SCATTER ##
 st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 
+## SELECTION FORM ##
+exo_drop_cols = ['pl_controv_flag', 'pl_bmassprov', 'ttv_flag',
+                 'st_temp_eff_k1', 'st_temp_eff_k2',
+                 'decstr', 'rastr',
+                 'sy_vmag', 'sy_kmag', 'sy_gaiamag']
+
+
+## EXOPLANET SELECTION ##
+## UPDATE WARNINGS PARAM ?? ##
+@st.cache(persist=True, allow_output_mutation=True, suppress_st_warning=True)
+def display_planet_stats(exo_input):
+    exo_df = exoplanets.loc[exoplanets['pl_name'] == exo_input] #'K2-398 b'
+    exo_df.drop(columns=exo_drop_cols, inplace=True)
+    st.dataframe(exo_df)
+
+with st.form('EXOPLANET SELECTION'):
+    exoplanet_prompt = st.subheader('SELECT AN EXOPLANET:')
+    exo_input = st.selectbox('', (exo_planet_list)) #'EXOPLANETS:'
+    exo_submit = st.form_submit_button('EXO-STATS')
+    if exo_submit:
+        display_planet_stats(exo_input)
+
+
+
+# with st.form('EXO-STAR SELECTION'):
+#     exo_star_prompt = st.subheader('SELECT AN EXO-STAR:')
+#     exo_star_selection = st.selectbox('', (exo_star_list)) #'EXO-STARS:'
+#     star_submit = st.form_submit_button('INTERSTELLAR')
+#     # if star_submit:
+
 ## DISCOVERY INFORMATION ##
 # left_col_2, right_col_2 = st.columns(2)
 # left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
@@ -411,38 +441,6 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
 
     # st.markdown(github_link, unsafe_allow_html=True)
     # st.markdown(nasa_caltech_link, unsafe_allow_html=True)
-
-## SELECTION FORM ##
-exo_drop_cols = ['pl_controv_flag', 'pl_bmassprov', 'ttv_flag',
-                 'st_temp_eff_k1', 'st_temp_eff_k2',
-                 'decstr', 'rastr',
-                 'sy_vmag', 'sy_kmag', 'sy_gaiamag']
-
-## UPDATE WARNING ?? ##
-
-@st.cache(persist=True, allow_output_mutation=True, suppress_st_warning=True)
-def display_planet_stats(exo_input):
-    exo_df = exoplanets.loc[exoplanets['pl_name'] == exo_input] #'K2-398 b'
-    exo_df.drop(columns=exo_drop_cols, inplace=True)
-    st.dataframe(exo_df)
-
-#%%
-with st.form('EXOPLANET SELECTION'):
-    exoplanet_prompt = st.subheader('SELECT AN EXOPLANET:')
-    exo_input = st.selectbox('', (exo_planet_list)) #'EXOPLANETS:'
-    exo_submit = st.form_submit_button('EXO-STATS')
-    if exo_submit:
-        display_planet_stats(exo_input)
-
-
-
-# with st.form('EXO-STAR SELECTION'):
-#     exo_star_prompt = st.subheader('SELECT AN EXO-STAR:')
-#     exo_star_selection = st.selectbox('', (exo_star_list)) #'EXO-STARS:'
-#     star_submit = st.form_submit_button('INTERSTELLAR')
-#     # if star_submit:
-
-
 
 
 
