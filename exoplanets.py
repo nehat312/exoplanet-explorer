@@ -309,10 +309,10 @@ st.write('*Sourced from NASA-CalTECH mission archives*')
 
 ## TELESCOPE IMAGES ##
 tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
-tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', width=375)
-tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', width=375)
-tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=375)
-tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=375)
+tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', width=250)
+tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', width=250)
+tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=250)
+tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=250)
 
 ## DISCOVERY INFORMATION ##
 # left_col_2, right_col_2 = st.columns(2)
@@ -401,16 +401,17 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
     # st.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
 ## SELECTION FORM ##
+exo_drop_cols = ['pl_controv_flag', 'pl_bmass_prov',
+                 'st_temp_eff_k1', 'st_temp_eff_k2',
+                 'decstr', 'rastr',
+                 'sy_vmag', 'sy_kmag', 'sy_gaiamag']
 
 ## UPDATE WARNING ?? ##
-#%%
-@st.cache(persist=True, allow_output_mutation=True, suppress_st_warning=True)
-# @st.cache(suppress_st_warning=True)
 
-#%%
+@st.cache(persist=True, allow_output_mutation=True, suppress_st_warning=True)
 def display_planet_stats(exo_input):
     exo_df = exoplanets.loc[exoplanets['pl_name'] == exo_input] #'K2-398 b'
-    exo_df.drop(columns=['st_temp_eff_k1', 'st_temp_eff_k2', 'decstr', 'rastr', 'sy_vmag', 'sy_kmag', 'sy_gaiamag'], inplace=True)
+    exo_df.drop(columns=exo_drop_cols, inplace=True)
     st.dataframe(exo_df)
 
 #%%
