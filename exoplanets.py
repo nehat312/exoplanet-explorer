@@ -166,7 +166,6 @@ disc_info_1 = px.histogram(disc_facility_filter,
                            hover_data=disc_facility_filter[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                            title='EXOPLANET DISCOVERY METHOD / FACILITY',
                            labels=chart_labels,
-                           barmode='group',
                            height=1200,
                            # width=800,
                            )
