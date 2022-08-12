@@ -155,7 +155,7 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
 
 
 disc_info_1 = px.histogram(exoplanets,
-                           y=exoplanets['disc_telescope'],
+                           y=exoplanets['disc_facility'],
                            color=exoplanets['disc_method'],
                            color_discrete_sequence=Ice_r,
                            hover_name=exoplanets['pl_name'],
