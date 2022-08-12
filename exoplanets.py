@@ -403,14 +403,17 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
 ## SELECTION FORM ##
 
 ## UPDATE WARNING ?? ##
-
+#%%
 @st.cache(persist=True, allow_output_mutation=True, suppress_st_warning=True)
 # @st.cache(suppress_st_warning=True)
+
+#%%
 def display_planet_stats(exo_input):
     exo_df = exoplanets.loc[exoplanets['pl_name'] == exo_input] #'K2-398 b'
     # exo_df.drop(columns=[''], inplace=True)
-    st.dataframe(exo_df)
+    st.dataframe(exo_df, chart_labels=chart_labels)
 
+#%%
 with st.form('EXOPLANET SELECTION'):
     exoplanet_prompt = st.subheader('SELECT AN EXOPLANET:')
     exo_input = st.selectbox('', (exo_planet_list)) #'EXOPLANETS:'
