@@ -129,7 +129,9 @@ exo_with_dist = exoplanets[['sy_distance_pc']].dropna()
 # #%%
 # print(disc_method_time.disc_year)
 
-
+disc_facility_filter = exoplanets[exoplanets['facility_count'] > 1]
+print(disc_facility_filter)
+#%%
 
 ## VISUALIZATION ##
 scatter_3d_1 = px.scatter_3d(exo_drop_na,
@@ -156,12 +158,12 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              )
 
 
-disc_info_1 = px.histogram(exoplanets,
-                           y=exoplanets['disc_facility'],
-                           color=exoplanets['disc_method'],
+disc_info_1 = px.histogram(disc_facility_filter,
+                           y=disc_facility_filter['disc_facility'],
+                           color=disc_facility_filter['disc_method'],
                            color_discrete_sequence=Ice_r,
-                           hover_name=exoplanets['pl_name'],
-                           hover_data=exoplanets[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
+                           hover_name=disc_facility_filter['pl_name'],
+                           hover_data=disc_facility_filter[['host_name', 'disc_facility', 'disc_telescope', 'sy_star_count', 'sy_planet_count']],
                            title='EXOPLANET DISCOVERY METHOD / FACILITY',
                            labels=chart_labels,
                            height=1200,
