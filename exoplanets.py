@@ -131,6 +131,10 @@ exo_with_dist = exoplanets[['sy_distance_pc']].dropna()
 
 disc_facility_filter = exoplanets[exoplanets['facility_count'] > 1]
 print(disc_facility_filter)
+
+#%%
+facility_filtered = disc_facility_filter['disc_facility'].unique()
+print(facility_filtered)
 #%%
 
 ## VISUALIZATION ##
@@ -168,7 +172,7 @@ disc_info_1 = px.histogram(disc_facility_filter,
                            title='EXOPLANET DISCOVERY FACILITY (BY DISCOVERY METHOD)',
                            labels=chart_labels,
                            range_x=[0,2500],
-                           range_y=disc_facility_filter['disc_facility'].unique(),
+                           range_y=facility_filtered,
                            height=1000,
                            # width=800,
                            )
