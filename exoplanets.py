@@ -173,7 +173,7 @@ disc_info_1 = px.histogram(disc_facility_filter,
                            title='EXOPLANET DISCOVERY FACILITY (BY DISCOVERY METHOD)',
                            labels=chart_labels,
                            range_x=[0,2500],
-                           range_y=[range(disc_facility_filter['disc_facility'])],
+                           range_y=[np.arange(disc_facility_filter['disc_facility'])],
                            height=1000,
                            # width=800,
                            )
