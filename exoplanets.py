@@ -153,8 +153,8 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              width=1600,
                              )
 disc_df = exoplanets
-disc_df['count'] = disc_df.groupby('name').transform('count')
-disc_filter_df = disc_df.loc[exoplanets['disc_facility'] >= 2].drop(columns='count')
+disc_df['count'] = disc_df.groupby('disc_facility').transform('count')
+disc_filter_df = disc_df.loc[disc_df['disc_facility'] >= 2].drop(columns='count')
 
 disc_info_1 = px.histogram(disc_filter_df,
                            y=disc_filter_df['disc_facility'],
