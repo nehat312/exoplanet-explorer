@@ -99,7 +99,8 @@ chart_labels = {'pl_name':'PL. NAME',
                 'ra':'RIGHT ASCENSION',
                 'dec':'DECLINATION',
                 'glon':'GALACTIC LONGITUDE',
-                'glat':'GALACTIC LATITUDE'
+                'glat':'GALACTIC LATITUDE',
+                'count':'DISCOVERIES',
                 }
 
 exo_planet_list = list(exoplanets['pl_name'])
