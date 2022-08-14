@@ -248,7 +248,11 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 ## SIDEBAR ##
 # st.sidebar.xyz
+#initial_sidebar_state="expanded"
 
+# window_selection_c = st.sidebar.container() # create an empty container in the sidebar
+# window_selection_c.markdown("## Insights") # add a title to the sidebar container
+# sub_columns = window_selection_c.columns(2)
 
 ## HEADER ##
 st.container()
