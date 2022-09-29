@@ -258,27 +258,17 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 ## HEADER ##
 st.container()
 st.title('EXOPLANET EXPLORER')
-st.caption('*Exoplanet data sourced from NASA-CalTECH mission archives*')
-
-## TELESCOPE IMAGES ##
-tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
-tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE', width=250)
-tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXO SURVEY SATELLITE', width=250)
-tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=250)
-tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=250)
+st.caption('*Data sourced from NASA-CalTECH mission archives*')
 
 ## EXTERNAL LINKS ##
-
-github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
 nasa_exo_link = '[NASA EXOPLANETS](https://exoplanets.nasa.gov/)'
 nasa_caltech_link = '[NASA ARCHIVE](https://exoplanetarchive.ipac.caltech.edu/)'
+github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
 
 link_col_1, link_col_2, link_col_3 = st.columns(3)
-ext_link_1 = link_col_1.markdown(github_link, unsafe_allow_html=True)
+ext_link_1 = link_col_1.markdown(nasa_caltech_link, unsafe_allow_html=True)
 ext_link_2 = link_col_2.markdown(nasa_exo_link, unsafe_allow_html=True)
-ext_link_3 = link_col_3.markdown(nasa_caltech_link, unsafe_allow_html=True)
-
-
+ext_link_3 = link_col_3.markdown(github_link, unsafe_allow_html=True)
 
 ## 3D SCATTER - EXOPLANETS ##
 
@@ -290,6 +280,14 @@ st.caption('RIGHT ASCENSION (RA): astronomical equivalent of longitude; expresse
     # One hour of RA == 15° of sky rotation.
 
 st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
+
+## TELESCOPE IMAGES ##
+tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
+tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE', width=250)
+tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXO SURVEY SATELLITE', width=250)
+tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=250)
+tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=250)
+
 
 ## SELECTION FORM ##
 exo_drop_cols = ['pl_controv_flag', 'pl_bmassprov', 'ttv_flag',
