@@ -153,7 +153,7 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              title='EXOPLANET POPULATION -- RIGHT ASCENSION / DECLINATION / DISTANCE',
                              labels=chart_labels,
                              # range_x=[0,360],
-                             # range_y=[-50,50],
+                             range_y=[-50,50],
                              range_z=[0,2500],
                              # range_color=Sunsetdark,
                              opacity=.8,
@@ -257,6 +257,16 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 ## HEADER ##
 st.container()
 
+## TELESCOPE IMAGES ##
+tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
+tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', width=250)
+tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', width=250)
+tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=250)
+tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=250)
+
+st.title('EXOPLANET EXPLORER')
+st.caption('*Exoplanet data sourced from NASA-CalTECH mission archives*')
+
 ## EXTERNAL LINKS ##
 
 github_link = '[GITHUB REPOSITORY](https://github.com/nehat312/exoplanet-explorer/)'
@@ -268,27 +278,21 @@ ext_link_1 = link_col_1.markdown(github_link, unsafe_allow_html=True)
 ext_link_2 = link_col_2.markdown(nasa_exo_link, unsafe_allow_html=True)
 ext_link_3 = link_col_3.markdown(nasa_caltech_link, unsafe_allow_html=True)
 
-## TELESCOPE IMAGES ##
-tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
-tele_col_1.image(jwst_tele_img_1, caption='JAMES WEBB SPACE TELESCOPE (JWST)', width=250)
-tele_col_2.image(tess_tele_img_1, caption='TRANSITING EXOPLANET SURVEY SATELLITE (TESS)', width=250)
-tele_col_3.image(kepler_tele_img_1, caption='KEPLER SPACE TELESCOPE', width=250)
-tele_col_4.image(hubble_tele_img_1, caption='HUBBLE SPACE TELESCOPE', width=250)
 
-st.title('EXOPLANET EXPLORER')
-st.caption('*Sourced from NASA-CalTECH mission archives*')
 
-## 3D SCATTER ##
+## 3D SCATTER - EXOPLANETS ##
 st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 
 st.caption('DECLINATION (DEC): celestial sphere equivalent of latitude; expressed in degrees (N/S: +/-)') #, as is latitude
-st.caption('RIGHT ASCENSION (RA): celestial equivalent of longitude; expressed ')
-# The celestial equator is 0° DEC, and the poles are +90° and -90°.
+st.caption('RIGHT ASCENSION (RA): celestial equivalent of longitude; expressed ') # The celestial equator is 0° DEC, and the poles are +90° and -90°.
+
 
 #
 # RA can be expressed in degrees, but it is more common to specify it in hours, minutes, and seconds of time:
     # the sky appears to turn 360° in 24 hours, or 15° in one hour.
     # So an hour of RA equals 15° of sky rotation.
+
+
 
 ## SELECTION FORM ##
 exo_drop_cols = ['pl_controv_flag', 'pl_bmassprov', 'ttv_flag',
