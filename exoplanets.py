@@ -158,7 +158,7 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              range_z=[0,2500],
                              # range_color=Sunsetdark,
                              opacity=.8,
-                             height=800,
+                             height=1000,
                              width=1600,
                              )
 
