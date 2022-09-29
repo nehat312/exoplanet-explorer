@@ -141,7 +141,8 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              x=exo_drop_na['ra'],
                              y=exo_drop_na['dec'],
                              z=exo_drop_na['sy_distance_pc'],
-                             color=exo_drop_na['disc_telescope'],
+                             color=exo_drop_na['pl_rade'],
+                             # color=exo_drop_na['disc_telescope'],
                              # color=exo_drop_na['st_temp_eff_k'],
                              color_discrete_sequence=Ice_r,
                              color_continuous_scale=Ice_r,
@@ -257,8 +258,6 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 ## HEADER ##
 st.container()
-st.title('EXOPLANET EXPLORER')
-st.caption('*Data sourced from NASA-CalTECH mission archives*')
 
 ## EXTERNAL LINKS ##
 nasa_exo_link = '[NASA EXOPLANETS](https://exoplanets.nasa.gov/)'
@@ -270,16 +269,24 @@ ext_link_1 = link_col_1.markdown(nasa_caltech_link, unsafe_allow_html=True)
 ext_link_2 = link_col_2.markdown(nasa_exo_link, unsafe_allow_html=True)
 ext_link_3 = link_col_3.markdown(github_link, unsafe_allow_html=True)
 
-## 3D SCATTER - EXOPLANETS ##
+## TITLE ##
+st.title('EXOPLANET EXPLORER')
+st.caption('*Data sourced from NASA-CalTECH mission archives*')
 
-st.caption('DECLINATION (DEC): astronomical equivalent of latitude; expressed in degrees [-90S : 90N]')
-st.caption('RIGHT ASCENSION (RA): astronomical equivalent of longitude; expressed in degrees [0 : 360')
+
+## 3D SCATTER - EXOPLANETS ##
+scatter_col_1, scatter_col_2 = st.columns(2)
+scatter_col_1.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
+scatter_col_2.caption('DECLINATION (DEC): astronomical equivalent of latitude; expressed in degrees [-90S : 90N]')
+#st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
+
+#st.caption('DECLINATION (DEC): astronomical equivalent of latitude; expressed in degrees [-90S : 90N]')
+#st.caption('RIGHT ASCENSION (RA): astronomical equivalent of longitude; expressed in degrees [0 : 360')
 # The celestial equator is 0° DEC, and the poles are +90° and -90°.
 # RA also commonly specified in hours, minutes, and seconds of time:
     # Sky appears to turn 360° in 24 hours, or 15° in one hour.
     # One hour of RA == 15° of sky rotation.
 
-st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 
 ## TELESCOPE IMAGES ##
 tele_col_1, tele_col_2, tele_col_3, tele_col_4 = st.columns(4)
