@@ -129,7 +129,7 @@ exo_with_dist = exoplanets[['sy_distance_pc']].dropna()
 # #%%
 # print(disc_method_time.disc_year)
 
-disc_facility_filter = exoplanets[exoplanets['facility_count'] > 2]
+disc_facility_filter = exoplanets[exoplanets['facility_count'] >= 10] #2 or 5
 
 facility_filtered = disc_facility_filter['disc_facility'].unique()
 # print(disc_facility_filter)
