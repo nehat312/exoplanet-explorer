@@ -358,9 +358,9 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
 
 ## GALAXY IMAGES ##
 img_col_1, img_col_2, img_col_3 = st.columns(3)
-img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=400)
-img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=400)
-img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=400)
+img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=300)
+img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=300)
+img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=300)
 
 
 ## CONCLUSION ##
