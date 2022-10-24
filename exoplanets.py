@@ -53,6 +53,8 @@ jwst_spiral_small = Image.open('images/JWST-Spiral-IC5332.jpg')
 jwst_spiral_wide = Image.open('images/JWST-Spiral-IC5332-wide.jpg')
 jwst_neptune_small = Image.open('images/Neptune-Triton.jpg')
 jwst_neptune_wide = Image.open('images/Neptune-wide.jpg')
+# jwst_ripple = Image.open('images/.jpg')
+    #https://www.cnn.com/2022/10/12/world/webb-dust-rings-stellar-pair-scn/index.html?utm_term=16658426551210166261c741a&utm_source=cnn_Wonder+Theory+10.15.22&utm_medium=email&bt_ee=kcsZRL9jcUVFWMDkCFr2DPG%2FyTohNtQjn0NUxii2qHcC1IPtr4DE3AXr0DB5a%2FrO&bt_ts=1665842655124
 
 
 
@@ -180,7 +182,7 @@ disc_info_1 = px.histogram(disc_facility_filter,
                            # animation_group=disc_facility_filter['disc_facility'],
                            title='EXOPLANET DISCOVERY FACILITY (BY DISCOVERY METHOD)',
                            labels=chart_labels,
-                           range_x=[0,2500],
+                           range_x=[0,3000],
                            height=1000,
                            # width=800,
                            )
@@ -346,6 +348,7 @@ img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=250)
 img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=250)
 img_col_4.image(jwst_cartwheel, caption='CARTWHEEL GALAXY (JWST)', width=250)
 # img_col_4.image(jwst_spiral_small, caption='SPIRAL GALAXY (JWST)', width=300)
+
 
 
 ## EXOPLANET SELECTION ##
