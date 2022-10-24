@@ -48,6 +48,12 @@ hubble_tele_img_1 = Image.open('images/Hubble-1.jpg')
 jwst_carina_img_1 = Image.open('images/JW-Carina-1.jpg')
 jwst_phantom_img_1 = Image.open('images/JW-Phantom.jpg')
 jwst_infra_img_1 = Image.open('images/JW-Infrared.jpg')
+jwst_cartwheel = Image.open('images/JWST-Cartwheel-1.png')
+jwst_spiral_small = Image.open('images/JWST-Spiral-IC5332.jpg')
+jwst_spiral_wide = Image.open('images/JWST-Spiral-IC5332-wide.jpg')
+jwst_neptune_small = Image.open('images/Neptune-Triton.jpg')
+jwst_neptune_wide = Image.open('images/Neptune-wide.jpg')
+
 
 
 # exoplanets.dropna(inplace=True)
@@ -303,29 +309,6 @@ exo_drop_cols = ['pl_controv_flag', 'pl_bmassprov', 'ttv_flag',
                  'sy_vmag', 'sy_kmag', 'sy_gaiamag']
 
 
-## EXOPLANET SELECTION ##
-## UPDATE WARNINGS PARAM ?? ##
-@st.cache(persist=True, allow_output_mutation=True, suppress_st_warning=True)
-def display_planet_stats(exo_input):
-    exo_df = exoplanets.loc[exoplanets['pl_name'] == exo_input] #'K2-398 b'
-    exo_df.drop(columns=exo_drop_cols, inplace=True)
-    st.dataframe(exo_df)
-
-with st.form('EXOPLANET SELECTION'):
-    exoplanet_prompt = st.subheader('SELECT AN EXOPLANET:')
-    exo_input = st.selectbox('', (exo_planet_list)) #'EXOPLANETS:'
-    exo_submit = st.form_submit_button('EXO-STATS')
-    if exo_submit:
-        display_planet_stats(exo_input)
-
-
-
-# with st.form('EXO-STAR SELECTION'):
-#     exo_star_prompt = st.subheader('SELECT AN EXO-STAR:')
-#     exo_star_selection = st.selectbox('', (exo_star_list)) #'EXO-STARS:'
-#     star_submit = st.form_submit_button('INTERSTELLAR')
-#     # if star_submit:
-
 ## DISCOVERY INFORMATION ##
 # left_col_2, right_col_2 = st.columns(2)
 # left_col_2.plotly_chart(disc_year_1, use_container_width=False, sharing="streamlit")
@@ -357,10 +340,34 @@ right_col_1.plotly_chart(star_matrix_1, use_container_width=False, sharing="stre
 
 
 ## GALAXY IMAGES ##
-img_col_1, img_col_2, img_col_3 = st.columns(3)
-img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=300)
-img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=300)
-img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=300)
+img_col_1, img_col_2, img_col_3, img_col_4 = st.columns(4)
+img_col_1.image(jwst_carina_img_1, caption='CARINA NEBULA (JWST)', width=250)
+img_col_2.image(jwst_phantom_img_1, caption='PHANTOM GALAXY (JWST)', width=250)
+img_col_3.image(jwst_infra_img_1, caption='INFRARED PANORAMIC (JWST)', width=250)
+img_col_4.image(jwst_cartwheel, caption='CARTWHEEL GALAXY (JWST)', width=250)
+# img_col_4.image(jwst_spiral_small, caption='SPIRAL GALAXY (JWST)', width=300)
+
+
+## EXOPLANET SELECTION ##
+## UPDATE WARNINGS PARAM ?? ##
+@st.cache(persist=True, allow_output_mutation=True, suppress_st_warning=True)
+def display_planet_stats(exo_input):
+    exo_df = exoplanets.loc[exoplanets['pl_name'] == exo_input] #'K2-398 b'
+    exo_df.drop(columns=exo_drop_cols, inplace=True)
+    st.dataframe(exo_df)
+
+with st.form('EXOPLANET SELECTION'):
+    exoplanet_prompt = st.subheader('SELECT AN EXOPLANET:')
+    exo_input = st.selectbox('', (exo_planet_list)) #'EXOPLANETS:'
+    exo_submit = st.form_submit_button('EXO-STATS')
+    if exo_submit:
+        display_planet_stats(exo_input)
+
+# with st.form('EXO-STAR SELECTION'):
+#     exo_star_prompt = st.subheader('SELECT AN EXO-STAR:')
+#     exo_star_selection = st.selectbox('', (exo_star_list)) #'EXO-STARS:'
+#     star_submit = st.form_submit_button('INTERSTELLAR')
+#     # if star_submit:
 
 
 ## CONCLUSION ##
