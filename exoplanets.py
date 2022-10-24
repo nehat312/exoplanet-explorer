@@ -129,7 +129,7 @@ exo_with_dist = exoplanets[['sy_distance_pc']].dropna()
 # #%%
 # print(disc_method_time.disc_year)
 
-disc_facility_filter = exoplanets[exoplanets['facility_count'] > 1]
+disc_facility_filter = exoplanets[exoplanets['facility_count'] > 2]
 
 facility_filtered = disc_facility_filter['disc_facility'].unique()
 # print(disc_facility_filter)
@@ -159,8 +159,8 @@ scatter_3d_1 = px.scatter_3d(exo_drop_na,
                              range_z=[0,2500],
                              # range_color=Sunsetdark,
                              opacity=.8,
-                             height=1000,
-                             width=1600,
+                             height=900,
+                             width=1200,
                              )
 
 
@@ -277,7 +277,7 @@ st.caption('*Data sourced from NASA-CalTECH mission archives*')
 ## 3D SCATTER - EXOPLANETS ##
 scatter_col_1, scatter_col_2 = st.columns(2)
 scatter_col_1.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
-scatter_col_2.caption('DECLINATION (DEC): astronomical equivalent of latitude; expressed in degrees [-90S : 90N]')
+# scatter_col_2.caption('DECLINATION (DEC): astronomical equivalent of latitude; expressed in degrees [-90S : 90N]')
 #st.plotly_chart(scatter_3d_1, use_container_width=False, sharing="streamlit")
 
 #st.caption('DECLINATION (DEC): astronomical equivalent of latitude; expressed in degrees [-90S : 90N]')
